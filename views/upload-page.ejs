@@ -1,0 +1,197 @@
+<!-- including header -->
+<%-include('header')-%>
+  <!-- including css -->
+  <link rel="stylesheet" href="../static/css/upload-page.css" />
+
+  <section>
+    <!-- post writing form -->
+    <form id="create-post-form" action="/user/upload" method="post" enctype="multipart/form-data">
+      <!-- thumbnail upload box -->
+      <div class="flex img-upload-container">
+        <input type="file" name="thumbnail" style="display: none" id="thumbnail-input" />
+
+        <!-- there will be a image in the future -->
+        <div class="flex" id="thumbnail-details">
+          <i class="fa-solid fa-cloud-arrow-up upload"></i>
+          <p id="text">Choose a image</p>
+
+        </div>
+
+        <!-- modal for content image preview -->
+        <div class="crop-modal content-image-modal">
+          <div class="modal-content">
+            <span id="modal-close">
+              <i class="fa-solid fa-xmark close_icon"></i>
+            </span>
+            <div class="modal-body">
+              <!-- image will appere here -->
+              <div class="preview-image"></div>
+            </div>
+            <hr />
+            <div class="modal-buttons">
+              <button type="button" class="btn flex" id="cancel">Cancel</button>
+              <button type="button" class="btn flex" id="thumbnail-done">Done</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- after auploading thumbnail, selected imae will appear here -->
+        <img src="" id="containerPreviewImage" alt="" />
+        <button type="button" class="btn" id="preview-image-remove-btn">
+          remove
+        </button>
+      </div>
+      <!-- title  -->
+      <input type="text" name="title" id="title" placeholder="Add a title..." value="<%=title%>" required />
+
+      <!-- customTagBox to add dynamically html tag into the post -->
+      <div class="customTagBox">
+        <!-- Text Format -->
+        <button type="button" id="bold" class="option-button format tags">
+          <i class="fa-solid fa-bold"></i>
+        </button>
+        <button type="button" id="italic" class="option-button format tags">
+          <i class="fa-solid fa-italic"></i>
+        </button>
+        <button type="button" id="underline" class="option-button format tags">
+          <i class="fa-solid fa-underline"></i>
+        </button>
+
+        <button type="button" id="superscript" class="option-button script tags">
+          <i class="fa-solid fa-superscript"></i>
+        </button>
+        <button type="button" id="subscript" class="option-button script tags">
+          <i class="fa-solid fa-subscript"></i>
+        </button>
+
+        <!-- List -->
+        <button type="button" id="insertOrderedList" class="option-button tags">
+          <div class="fa-solid fa-list-ol"></div>
+        </button>
+        <button type="button" id="insertUnorderedList" class="option-button tags">
+          <i class="fa-solid fa-list"></i>
+        </button>
+
+        <!-- Undo/Redo -->
+        <button type="button" id="undo" class="option-button tags">
+          <i class="fa-solid fa-rotate-left"></i>
+        </button>
+        <button type="button" id="redo" class="option-button tags">
+          <i class="fa-solid fa-rotate-right"></i>
+        </button>
+
+        <!-- Link -->
+        <button type="button" id="createLink" class="adv-option-button tags">
+          <i class="fa fa-link"></i>
+        </button>
+        <button type="button" id="unlink" class="option-button tags">
+          <i class="fa fa-unlink"></i>
+        </button>
+
+        <!-- Alignment -->
+        <button type="button" id="justifyLeft" class="option-button align tags">
+          <i class="fa-solid fa-align-left"></i>
+        </button>
+        <button type="button" id="justifyCenter" class="option-button align tags">
+          <i class="fa-solid fa-align-center"></i>
+        </button>
+        <button type="button" id="justifyRight" class="option-button align tags">
+          <i class="fa-solid fa-align-right"></i>
+        </button>
+        <button type="button" id="justifyFull" class="option-button align tags">
+          <i class="fa-solid fa-align-justify"></i>
+        </button>
+        <button type="button" id="indent" class="option-button spacing tags">
+          <i class="fa-solid fa-indent"></i>
+        </button>
+        <button type="button" id="indent" class="option-button spacing tags">
+          <i class="fa-solid fa-indent"></i>
+        </button>
+        <button type="button" id="image" class="option-button tags">
+          <i class="fa-solid fa-image"></i>
+        </button>
+
+        <!-- Headings -->
+        <select id="formatBlock" class="adv-option-button headeing">
+          <option value="H1">H1</option>
+          <option value="H2">H2</option>
+          <option value="H3">H3</option>
+          <option value="H4">H4</option>
+          <option value="H5">H5</option>
+          <option value="H6">H6</option>
+        </select>
+
+        <!-- Font -->
+        <select id="fontSize" class="adv-option-button"></select>
+
+        <!-- Color -->
+        <div class="input-wrapper">
+          <input type="color" id="foreColor" class="adv-option-button" />
+          <label for="foreColor">Font Color</label>
+        </div>
+        <div class="input-wrapper">
+          <input type="color" id="backColor" class="adv-option-button" />
+          <label for="backColor">Highlight Color</label>
+        </div>
+
+        <!-- this is the main editor -->
+        <div id="text-input" name="description" contenteditable="true">
+          <%-description%>
+        </div>
+
+        <!-- this is the input editor and this input will goes to the database -->
+        <textarea id="text-output" style="display: none" name="description">
+<%-description%></textarea>
+      </div>
+
+      <!-- keywords -->
+      <div class="keywords flex">
+        <!-- posts tags -->
+        <div class="tags">
+          <h1 class="h1"><i class="fa-solid fa-tags"></i>Enter Post Tags:</h1>
+          <div class="tag-box">
+            <textarea name="tags" id="tags-container" style="display: none"></textarea>
+          </div>
+          <input type="text" name="tag-input" id="tag-input" placeholder="Enter your tags" />
+        </div>
+
+        <!-- posts categories -->
+        <div class="flex" id="categories">
+          <label for="categories">Choose a Categorie:</label>
+          <select name="categories" id="categorie" multiple required>
+            <%if(category){%>
+              <%category.forEach(category=>{%>
+                <option value="<%=category.category%>">
+                  <%=category.category%>
+                </option>
+                <%})%>
+                  <%}%>
+          </select>
+
+          <!-- to add a new categorie -->
+          <input type="text" name="newCategorie" id="newCategorie" placeholder="Add a new categorie"
+            autocomplete="off" />
+          <button class="btn" id="addCategorie" type="button">Add</button>
+        </div>
+      </div>
+
+      <!-- submit button -->
+      <button class="submit-btn btn" id="postSubmitBtn" type="submit">
+        Upload Post
+      </button>
+    </form>
+
+    <form id="image-upload-form" style="display: none" enctype="multipart/form-data">
+      <input type="file" name="image" id="text-editor-input" />
+    </form>
+  </section>
+
+  <!-- including footer -->
+  <%-include('footer')-%>
+
+    <!-- including JavaScript -->
+    <script src="../static/js/upload-page/tag-input.js"></script>
+    <script src="../static/js/upload-page/image-upload.js"></script>
+    <script src="../static/js/upload-page/thumbnail-upload.js"></script>
+    <script src="../static/js/upload-page/tag-upload.js"></script>
+    <script src="../static/js/upload-page/categorie-upload.js"></script>

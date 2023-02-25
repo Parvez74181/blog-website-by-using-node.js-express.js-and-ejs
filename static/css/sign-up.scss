@@ -1,0 +1,342 @@
+@import "./_colorCode";
+.categories {
+    display: none;
+}
+.animation {
+    position: relative;
+    z-index: 1;
+    top: 30rem;
+    left: 10%;
+    img {
+        position: absolute;
+        transition: 0.4s;
+    }
+    .bg {
+        opacity: 0.2;
+        width: 45rem;
+        animation: bg 4s ease-in-out infinite;
+    }
+    .leaves {
+        transform: translate(3rem, 20rem);
+        width: 7rem;
+        opacity: 0.3;
+        animation: leaves 4s ease-in-out infinite;
+    }
+    .man {
+        width: 15rem;
+        transform: translate(17rem, 0rem);
+        animation: man 4s ease-in-out infinite;
+        animation-delay: -2s;
+    }
+    .bank {
+        opacity: 0.7;
+        width: 30rem;
+        transform: translate(10rem, 15rem);
+        animation: bank 4s ease-in-out infinite;
+        animation-delay: -1.5s;
+    }
+}
+@keyframes bg {
+    0%,
+    100% {
+        transform: translateY(0rem);
+    }
+    50% {
+        transform: translateY(2rem);
+    }
+}
+@keyframes leaves {
+    0%,
+    100% {
+        transform: translate(3rem, 17rem);
+    }
+    50% {
+        transform: translate(3rem, 21rem);
+    }
+}
+@keyframes man {
+    0%,
+    100% {
+        transform: translate(17rem, 0rem);
+    }
+    50% {
+        transform: translate(17rem, 2rem);
+    }
+}
+@keyframes bank {
+    0%,
+    100% {
+        transform: translate(10rem, 15rem);
+    }
+    50% {
+        transform: translate(10rem, 17rem);
+    }
+}
+
+// form container
+.form-container {
+    position: absolute;
+    width: 100%;
+    min-height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    // sign up form
+    #sign-up-form {
+        position: relative;
+        width: 30%;
+        height: 80rem;
+        margin: 8rem 0;
+        display: flex;
+        justify-content: center;
+        box-shadow: 0px 0px 1.5rem rgba(0, 0, 0, 0.1);
+        align-items: center;
+        flex-direction: column;
+        overflow: hidden;
+        transition: 1.2s;
+        background: $white;
+        border-radius: 1rem;
+        backdrop-filter: blur(40px);
+        transform: translateX(20rem);
+        animation: pop_up 0.5s ease;
+        h2 {
+            color: $black;
+            position: absolute;
+            top: 5%;
+            font-size: 4rem;
+            &::after {
+                content: "";
+                position: absolute;
+                bottom: -5%;
+                left: 50%;
+                transform: translateX(-50%);
+                width: 50%;
+                height: 4px;
+                background: $black;
+            }
+        }
+        .form-input {
+            position: relative;
+            top: 1rem;
+            width: 80%;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            flex-direction: column;
+            padding: 0rem 3rem;
+            div {
+                position: relative;
+                width: 100%;
+                margin-top: 6rem;
+                label {
+                    position: absolute;
+                    left: 0;
+                    font-weight: 300;
+                    padding: 1rem 0rem;
+                    color: $black;
+                    transition: 0.3s;
+                    user-select: none;
+                    font-size: 1.3rem;
+                }
+                input {
+                    position: relative;
+                    width: 100%;
+                    outline: none;
+                    background: transparent;
+                    border: none;
+                    border-bottom: 1px solid $black;
+                    padding: 1rem 0rem;
+                    color: $black;
+                    transition: 0.3s;
+                    z-index: 1;
+                    &:focus {
+                        border-bottom: 1px solid $black;
+                    }
+                }
+
+                input:focus ~ label,
+                input:valid ~ label,
+                input:checked ~ label {
+                    transform: translateY(-2rem);
+                    font-size: 1rem;
+                }
+
+                i {
+                    position: absolute;
+                    color: $black;
+                    font-size: 1.5rem;
+                    right: 1rem;
+                    bottom: 1.5rem;
+                }
+                .password {
+                    padding-right: 3.5rem;
+                }
+                .fa-eye-slash {
+                    display: none;
+                }
+                .fa-eye-slash,
+                .fa-eye {
+                    cursor: pointer;
+                    z-index: 1;
+                }
+            }
+        }
+        button {
+            position: relative;
+            top: 3%;
+            width: 70%;
+            outline: none;
+            background: transparent;
+            border: 1px solid $crimson;
+            background: $crimson;
+            border-radius: 1rem;
+            margin: 2rem;
+            padding: 1rem;
+            font-size: 2rem;
+            font-weight: 600;
+            color: $white;
+            transition: 0.4s;
+            cursor: pointer;
+            &:hover {
+                box-shadow: 0 0 1.5rem $crimson;
+            }
+        }
+        .text {
+            position: relative;
+            top: 2rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            span {
+                color: $black;
+                font-size: 1.5rem;
+                padding: 0.5rem;
+                #sign-in {
+                    font-size: 1.5rem;
+                    cursor: pointer;
+                    color: $blue;
+                    padding: 0.5rem;
+                }
+            }
+        }
+    }
+}
+@keyframes pop_up {
+    0% {
+        height: 0rem;
+    }
+    100% {
+        height: 80rem;
+    }
+}
+.flex {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    width: 100%;
+}
+
+// 320px — 480px: Mobile devices
+@media only screen and (min-width: 320px) and (max-width: 480px) {
+    .animation {
+        display: none;
+    }
+    .form-container {
+        position: inherit;
+        // sign up form
+        #sign-up-form {
+            transform: translateX(0rem);
+            width: 90%;
+            h2 {
+                font-size: 3rem;
+                &::after {
+                    height: 3px;
+                }
+            }
+        }
+    }
+}
+
+// 481px — 768px: iPads, Tablets
+@media only screen and (min-width: 481px) and (max-width: 768px) {
+    .animation {
+        display: none;
+    }
+    .form-container {
+        position: inherit;
+        // sign up form
+        #sign-up-form {
+            transform: translateX(0rem);
+            width: 90%;
+            h2 {
+                font-size: 3rem;
+                &::after {
+                    height: 3px;
+                }
+            }
+        }
+    }
+}
+
+// 769px — 1024px: Small screens, laptops
+@media only screen and (min-width: 769px) and (max-width: 1024px) {
+    .animation {
+        display: none;
+    }
+    .form-container {
+        position: inherit;
+        // sign up form
+        #sign-up-form {
+            transform: translateX(11rem);
+            width: 50%;
+            h2 {
+                font-size: 3rem;
+                &::after {
+                    height: 3px;
+                }
+            }
+        }
+    }
+}
+
+// 1025px — 1200px: Desktops, large screens
+@media only screen and (min-width: 1025px) and (max-width: 1200px) {
+    .animation {
+        // .bg {
+        //     width: 38rem;
+        //     translate: 12rem 0;
+        // }
+        // .leaves {
+        //     left: 10rem;
+        //     top: -2rem;
+        // }
+        // .man {
+        //     width: 12rem;
+        //     left: 10rem;
+        //     top: 3rem;
+        // }
+        // .bank {
+        //     width: 25rem;
+        //     left: 10rem;
+        // }
+        display: none;
+    }
+    .form-container {
+        position: inherit;
+        // sign up form
+        #sign-up-form {
+            transform: translateX(12rem);
+            width: 50%;
+            h2 {
+                font-size: 3rem;
+                &::after {
+                    height: 3px;
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,330 @@
+@import "./_colorCode";
+.categories {
+    display: none;
+}
+// form container
+main {
+    .form-container {
+        position: relative;
+        min-height: 170vh;
+        width: 100vw;
+        // margin: auto;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        overflow: hidden;
+        // margin-bottom: 10rem;
+
+        //profile edti form
+        #profile-edit-form {
+            position: relative;
+            width: 40%;
+            margin: 2rem 0;
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            background: $white;
+            box-shadow: 0px 0px 1.5rem rgba(0, 0, 0, 0.2);
+            align-items: center;
+            overflow: hidden;
+            transition: 1.2s;
+            border-radius: 1rem;
+            backdrop-filter: blur(40px);
+            transform: translate(10rem, 3rem);
+            h2 {
+                color: $black;
+                position: absolute;
+                top: 3%;
+                font-size: 3rem;
+                &::after {
+                    content: "";
+                    position: absolute;
+                    bottom: -5%;
+                    left: 50%;
+                    transform: translateX(-50%);
+                    width: 50%;
+                    height: 3px;
+                    background: white;
+                }
+            }
+
+            #user-data {
+                position: relative;
+                margin-top: 18%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                i {
+                    font-size: 1.8rem;
+                    position: absolute;
+                    width: 3.5rem;
+                    height: 3.5rem;
+                    background: $black;
+                    color: $white;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    cursor: pointer;
+                    top: 47%;
+                    left: 90%;
+                    border-radius: 50%;
+                    transform: translateX(-50%);
+                    transition: 0.3s;
+                    &:hover {
+                        transform: scale(1.05);
+                    }
+                }
+                #profile {
+                    width: 10rem;
+                    height: 10rem;
+                    object-fit: fill;
+                    border-radius: 50%;
+                    transition: 0.3s;
+                    &:hover {
+                        transform: scale(1.05);
+                    }
+                }
+                #profilePic,
+                #outputImageUrl {
+                    display: none;
+                }
+            }
+
+            .form-input {
+                position: relative;
+                top: 1rem;
+                width: 80%;
+                display: flex;
+                justify-content: center;
+                align-items: flex-start;
+                flex-direction: column;
+                padding: 0rem 3rem;
+                div {
+                    position: relative;
+                    width: 100%;
+                    margin-top: 6rem;
+                    label {
+                        position: absolute;
+                        left: 0;
+                        font-weight: 300;
+                        padding: 1rem;
+                        color: $black;
+                        transition: 0.3s;
+                        user-select: none;
+                        font-size: 1.3rem;
+                    }
+                    input,
+                    textarea {
+                        position: relative;
+                        width: 100%;
+                        outline: none;
+                        background: transparent;
+                        border: none;
+                        border: 1px solid $black;
+                        padding: 1rem;
+                        border-radius: 0.5rem;
+                        color: $black;
+                        transition: 0.3s;
+                        resize: none;
+                        z-index: 1;
+                        &:focus {
+                            border-bottom: 1px solid $black;
+                        }
+                    }
+                    .is-invalid {
+                        border-bottom: 1px solid #e60200;
+                    }
+                    .invalid-feedback {
+                        left: 0;
+                        position: absolute;
+                        width: 100%;
+                        font-size: 1.3rem;
+                        color: #e60200;
+                        bottom: -20px;
+                    }
+                    input:focus ~ label,
+                    input:valid ~ label,
+                    input:checked ~ label,
+                    textarea:focus ~ label,
+                    textarea:valid ~ label,
+                    textarea:checked ~ label {
+                        transform: translate(-1rem, -3rem);
+                        color: $black;
+                        font-size: 1rem;
+                    }
+
+                    i {
+                        position: absolute;
+                        color: $black;
+                        font-size: 1.5rem;
+                        right: 1rem;
+                        bottom: 1.5rem;
+                    }
+                }
+                h3 {
+                    color: $black;
+                    opacity: 0.8;
+                    font-size: 2rem;
+                    padding-top: 2rem;
+                    font-weight: 500;
+                }
+                // user social links
+                .social-links {
+                    position: relative;
+                    margin-top: -10rem;
+                    .facebook,
+                    .website,
+                    .linkedin,
+                    .youtube,
+                    .instagram,
+                    .twitter {
+                        input {
+                            padding-left: 5rem;
+                        }
+                    }
+                    i {
+                        position: absolute;
+                        left: 0;
+                        width: 3.9rem;
+                        height: 3.9rem;
+                        top: 3%;
+                        border-top-left-radius: 0.5rem;
+                        border-bottom-left-radius: 0.5rem;
+                        background: $black;
+                        color: $white;
+                        padding: 1rem;
+                        font-size: 2rem;
+                    }
+                }
+            }
+            #btn {
+                position: relative;
+                width: 50%;
+                outline: none;
+                background: transparent;
+                border: 1px solid $crimson;
+                background: $crimson;
+                border-radius: 1rem;
+                margin: 6rem;
+                padding: 1rem;
+                font-size: 2rem;
+                font-weight: 600;
+                color: $white;
+                transition: 0.4s;
+                cursor: pointer;
+                &:hover {
+                    box-shadow: 0 0 1rem $crimson;
+                }
+            }
+        }
+        // modal
+        .crop-modal {
+            position: absolute;
+            width: 70vw;
+            margin: auto;
+            height: 100vh;
+            top: 0;
+            z-index: 2;
+            display: flex;
+            justify-content: center;
+            transform: scale(0) translateX(10rem);
+            .modal-content {
+                position: relative;
+                background: $white;
+                width: 50%;
+                height: 50%;
+                border-radius: 0.5rem;
+                padding: 2rem;
+                z-index: 5;
+                transform: scale(0);
+                transform-origin: top center;
+                transition: 0.4s;
+                #modal-close {
+                    position: absolute;
+                    top: 1%;
+                    right: 1%;
+                    width: 3rem;
+                    height: 3rem;
+                    list-style: none;
+                    border-radius: 0.5rem;
+                    padding: 1rem;
+                    cursor: pointer;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    user-select: none;
+                    z-index: 2;
+                    .fa-xmark {
+                        position: absolute;
+                        top: 50%;
+                        left: 50%;
+                        transform: translate(-50%, -50%);
+                        font-size: 1.7rem;
+                        width: 3rem;
+                        height: 3rem;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        transition: 0.1s;
+                        color: $black;
+                        &:hover {
+                            background-color: rgba(255, 255, 255, 0.1);
+                            border-radius: 0.5rem;
+                        }
+                    }
+                }
+
+                .modal-body {
+                    position: absolute;
+                    width: 90%;
+                    height: 60%;
+                    top: 10%;
+                    left: 5%;
+                    bottom: 15%;
+                    .preview-image {
+                        #image {
+                            position: absolute;
+                            top: 0;
+                            left: 0;
+                            width: 100%;
+                            height: 100%;
+                            object-fit: contain;
+                        }
+                    }
+                }
+                hr {
+                    position: relative;
+                    top: 80%;
+                    border: 0.5px solid $blue;
+                }
+                .modal-buttons {
+                    position: absolute;
+                    bottom: 5%;
+                    right: 5%;
+                    #cancel {
+                        background: #444;
+                        transition: 0.1s;
+                        border-color: #444;
+                        color: $ghost-white;
+                        margin-right: 2rem;
+                        box-shadow: -0.5rem 0.5rem #222;
+                        &:active {
+                            top: 0.4rem;
+                            box-shadow: -0.2rem 0.2rem #222;
+                        }
+                    }
+
+                }
+            }
+        }
+    }
+}
+
+.flex {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    width: 100%;
+}

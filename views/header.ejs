@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>
+    <%=title%>
+  </title>
+
+  <!-- fontawesome css -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+    integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <!-- AOS css -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+
+  <!-- swiper-js css -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css" />
+
+  <!--header css -->
+  <link rel="stylesheet" href="../static/css/header.css" />
+
+  <!-- favicon -->
+
+  <link rel="apple-touch-icon" sizes="180x180" href="../static/img/apple-touch-icon.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="../static/img/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="../static/img/favicon-16x16.png" />
+</head>
+
+<body>
+
+
+  <!-- header menu -->
+  <header id="header">
+    <ul class="top">
+      <li id="menu-bar">
+        <i class="fa-solid fa-bars"></i>
+      </li>
+
+      <!-- if user logged in, then show this menu -->
+      <% if(verify !="failed" ){ %>
+        <li id="user">
+          <div class="user-data">
+            <img id="profilepic" src="<%=user.profilePic%>" />
+          </div>
+
+          <ul id="user-menu">
+            <li>
+              <a href="/user/upload">
+                <i class="fa-solid fa-plus"></i>Create a post
+              </a>
+            </li>
+            <li>
+              <a href="/user/dashboard">
+                <i class="fa-solid fa-chart-line"></i>Dashboard
+              </a>
+            </li>
+            <li>
+              <a href="/user/profile-edit">
+                <i class="fa-solid fa-pen-to-square"></i>Edit Profile
+              </a>
+            </li>
+            <li>
+              <a href="/user/log-out">
+                <i class="fa-solid fa-arrow-right-from-bracket"></i>Log-Out
+              </a>
+            </li>
+          </ul>
+        </li>
+        <!-- if user not logged in, then show this menu -->
+        <% } else if(verify==="failed" ){%>
+
+          <li id="sign-in">
+            <a id="sign" href="/user/sign-in">
+              <i class="fa-solid fa-user"></i>
+              sign-in
+            </a>
+          </li>
+          <%}%>
+    </ul>
+  </header>
+  <!-- categories section -->
+  <section class="categories">
+    <aside class="swiper" id="jwp-slider">
+      <ul class="swiper-wrapper">
+        <%if(category){%>
+          <%category.forEach(category=>{%>
+            <li class="swiper-slide"><a href="#">
+                <%=category.category%>
+              </a></li>
+            <%})%>
+              <%}%>
+      </ul>
+    </aside>
+  </section>
+
+  <!-- navigation menu -->
+  <nav>
+    <!-- side menu -->
+    <aside>
+      <span id="menu-close">
+        <i class="fa-solid fa-xmark"></i>
+      </span>
+
+      <ul>
+        <li data-aos="fade-up" data-aos-duration="500">
+          <a id="logo" href="/">
+            <img src="../static/img/logo.png" alt="" />
+          </a>
+        </li>
+        <li data-aos="fade-up" data-aos-duration="1000" id="search">
+          <input type="text" name="search" id="searchBtn" placeholder="Search here..." />
+          <i class="fa-solid fa-magnifying-glass"></i>
+        </li>
+        <li data-aos="fade-up" data-aos-duration="1200">
+          <a id="home" href="/">
+            <i class="fa-solid fa-house"></i>
+            home
+          </a>
+        </li>
+        <li data-aos="fade-up" data-aos-duration="1400">
+          <a id="blog" href="/blog">
+            <i class="fa-brands fa-blogger-b"></i>
+            blog
+          </a>
+        </li>
+        <li data-aos="fade-up" data-aos-duration="1600">
+          <a id="news" href="/news">
+            <i class="fa-solid fa-newspaper"></i>
+            news
+          </a>
+        </li>
+        <li data-aos="fade-up" data-aos-duration="1800">
+          <a id="about" href="/about-us">
+            <i class="fa-solid fa-circle-info"></i>
+            about
+          </a>
+        </li>
+        <li data-aos="fade-up" data-aos-duration="2000">
+          <a id="contact" href="/contact-us">
+            <i class="fa-solid fa-message"></i>
+            contact-us
+          </a>
+        </li>
+      </ul>
+    </aside>
+  </nav>
+
+  <!-- include javascript -->
+
+  <script src="../static/js/header/header.js"></script>
+
+  <!-- fontawesome javascript -->
+  <script src="https://kit.fontawesome.com/a36f2fa2f9.js" crossorigin="anonymous"></script>
+
+  <!-- AOS javascript -->
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init();
+  </script>
+  <!-- swiperjs javascript -->
+  <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
+
+  <!-- // categorie section script -->
+  <script>
+    const swiper = new Swiper(".swiper", {
+      centeredSlides: false,
+      centeredSlidesBounds: false,
+      slidesPerView: "auto",
+      longSwipesMs: 0,
+      watchSlidesProgress: true,
+      mousewheelControl: true,
+      loopPreventsSlide: false,
+      longSwipes: true,
+      longSwipesRatio: 0,
+      threshold: 0,
+      preventClicks: true,
+      slideToClickedSlide: true,
+      speed: 900,
+      spaceBetween: 20,
+      keyboard: {
+        enabled: true,
+        onlyInViewport: true,
+      },
+      grabCursor: true,
+    });
+  </script>
+</body>
+
+</html>

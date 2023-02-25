@@ -1,0 +1,122 @@
+<!-- including header -->
+<%-include('header')-%>
+
+    <!-- including css -->
+    <link rel="stylesheet" href="../static/css/adminDashboard.css" />
+
+    <!-- main section -->
+    <main>
+        <div class="wrapper">
+            <h1>Admin Dashboard</h1>
+            <div class="boxs flex">
+                <div class="box flex unique-visitor">
+                    <span class="count">[ 500 ]</span>
+                    <span>Unique Visitors</span>
+                </div>
+
+                <div class="box flex total-visitor">
+                    <span class="count">[ 1000 ]</span>
+                    <span>Total Visitors</span>
+                </div>
+
+                <a href="/blog">
+                    <div class="box flex blogs">
+                        <span class="count">[ 300 ]</span>
+                        <span>Total Posts</span>
+                    </div>
+                </a>
+
+               <a href="/news">
+                <div class="box flex blogs">
+                    <span class="count">[ 300 ]</span>
+                    <span>Total News</span>
+                </div>
+               </a>
+
+                <a href="">
+                    <div class="box flex blogs">
+                        <span class="count">[ 300 ]</span>
+                        <span>Total Reviews</span>
+                    </div>
+                </a>
+
+                <a href="">
+                    <div class="box flex blogs">
+                        <span class="count">[ 300 ]</span>
+                        <span>Total Store</span>
+                    </div>
+                </a>
+
+                <a href="">
+                    <div class="box flex blogs">
+                        <span class="count">[ 30 ]</span>
+                        <span>Total Users</span>
+                    </div>
+                </a>
+
+                <a href="">
+                    <div class="box flex blogs">
+                        <i class="fa-brands fa-blogger-b"></i>
+                        <span>Admin Posts</span>
+                    </div>
+                </a>
+                <a href="">
+                    <div class="box flex blogs">
+                        <i class="fa-brands fa-blogger-b"></i>
+                        <span>Your Posts</span>
+                    </div>
+                </a>
+
+            </div>
+
+        </div>
+    </main>
+
+    <!-- sidebar for user -->
+    <aside id="dashboardMenu">
+
+        <!-- user data section -->
+        <ul id="user-data">
+            <img data-aos="fade-up" src="<%=user.profilePic%>" alt="user profile pic" />
+            <span>
+                <%=user.userName%>
+            </span>
+            <span style="text-transform: lowercase;">
+                <%=user.email%>
+            </span>
+        </ul>
+
+        <!-- user menus -->
+        <ul>
+            <li data-aos="fade-right">
+                <a href="/user/upload">
+                    <i class="fa-solid fa-plus"></i>
+                    Create a New Post
+                </a>
+            </li>
+            <li data-aos="fade-left">
+                <a href="/user/reset-password">
+                    <i class="fa-solid fa-wrench"></i>
+                    Reset Password
+                </a>
+            </li>
+            <li data-aos="fade-right">
+                <a href="/user/profile-edit">
+                    <i class="fa-solid fa-pen-to-square"></i>
+                    Edit Profile
+                </a>
+            </li>
+            <li data-aos="fade-left">
+                <a href="/user/log-out">
+                    <i class="fa-solid fa-arrow-right-from-bracket"></i>
+                    Log-out
+                </a>
+            </li>
+        </ul>
+    </aside>
+
+    <!-- including footer -->
+    <%-include('footer')-%>
+        </body>
+
+        </html>

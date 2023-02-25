@@ -1,0 +1,101 @@
+<!-- including header -->
+<%-include("header")-%>
+
+    <!-- including css -->
+    <link rel="stylesheet" href="../static/css/sign-up.css" />
+<main>
+    
+    <div class="animation">
+        <img class="bg" src="../static/img/sign-in-img/bg-2.svg" alt="">
+        <img class="bank" src="../static/img/sign-in-img/bank.svg" alt="">
+        <img class="leaves" src="../static/img/sign-in-img/Leaves_object.svg" alt="">
+        <img class="man" src="../static/img/sign-in-img/man_working.svg" alt="">
+    </div>
+
+    <div class="form-container">
+        <!-- sign-up-form -->
+        <form id="sign-up-form" action="/user/registration" method="post">
+            <h2>Sign-Up</h2>
+            <div class="form-input">
+                <div>
+                    <input type="text" name="userName" class="<%=error.userName ? 'is-invalid' : '' %>"
+                        value="<%=value.userName ? value.userName:''%>" required />
+
+                    <label for="userName" id="userName-label">User Name</label>
+                    <span class="invalid-feedback">
+                        <%=error.userName && error.userName%>
+                    </span>
+                </div>
+
+                <div>
+                    <input type="tel" name="phone" class="<%=error.phone? 'is-invalid':''%>"
+                        value="<%=value.phone ? value.phone:''%>" required />
+
+                    <label for="phone" id="phone-label">Phone</label>
+                    <span class="invalid-feedback">
+                        <%=error.phone && error.phone%>
+                    </span>
+                </div>
+
+                <div>
+                    <input type="email" name="email" class="<%=error.email? 'is-invalid':''%>"
+                        value="<%=value.email ? value.email:''%>" required />
+
+                    <label for="email" id="email-label">E-mail</label>
+                    <span class="invalid-feedback">
+                        <%=error.email && error.email%>
+                    </span>
+                </div>
+
+                <div>
+                    <input type="text" name="address" class="<%=error.address? 'is-invalid':''%>"
+                        value="<%=value.address ? value.address:''%>" required />
+                    <label for="address" id="address-label">Address</label>
+                    <span class="invalid-feedback">
+                        <%=error.address && error.useraddressName%>
+                    </span>
+                </div>
+
+                <div>
+                    <input type="password" name="password" class="password <%=error.password? 'is-invalid':''%>" required />
+
+                    <label for="password" id="password-label">Password</label>
+                    <i class="fa-solid fa-eye"></i>
+                    <i class="fa-solid fa-eye-slash"></i>
+                    <span class="invalid-feedback">
+                        <%=error.password && error.password%>
+                    </span>
+                </div>
+
+                <div>
+                    <input type="password" name="confirmPassword" class="password <%=error.confirmPassword? 'is-invalid':''%>"
+                        required />
+                    <label for="confirmPassword" id="confirm-password-label">Confirm Password</label>
+                    <i class="fa-solid fa-eye"></i>
+                    <i class="fa-solid fa-eye-slash"></i>
+                    <span class="invalid-feedback">
+                        <%=error.confirmPassword && error.confirmPassword%>
+                    </span>
+                </div>
+            </div>
+
+            <button type="submit" id="btn">Sign Up</button>
+            <div class="text">
+                <span>Already Have an account?
+
+                    <a href="/user/sign-in" id="sign-in">Sign-In</a>
+                </span>
+            </div>
+        </form>
+    </div>
+    <!-- space box -->
+    <div class="space"></div>
+</main>
+    <!-- including footer -->
+    <%-include('footer')-%>
+
+        <!-- including javascript -->
+        <script src="../static/js/sign-up.js"></script>
+        </body>
+
+        </html>

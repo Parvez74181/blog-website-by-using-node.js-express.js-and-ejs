@@ -1,0 +1,14 @@
+// importing color code
+@import "./_colorCode";
+#news {
+    background: #fff;
+    color: $crimson;
+    border-radius: 0.5rem;
+    transform: translateX(1rem);
+}
+#blog {
+    background: transparent;
+    color: $white;
+    border-radius: 0rem;
+    transform: translateX(0rem);
+}

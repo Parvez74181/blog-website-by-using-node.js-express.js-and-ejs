@@ -1,0 +1,13 @@
+#news {
+  background: #fff;
+  color: #D72638;
+  border-radius: 0.5rem;
+  transform: translateX(1rem);
+}
+
+#blog {
+  background: transparent;
+  color: #FFFFFF;
+  border-radius: 0rem;
+  transform: translateX(0rem);
+}/*# sourceMappingURL=news.css.map */

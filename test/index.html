@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      div {
+        width: 10rem;
+        height: 10rem;
+        border: 1px solid red;
+      }
+    </style>
+  </head>
+  <body>
+    <div contenteditable="true"></div>
+
+    <button>bold</button>
+
+    <script src="./test.js"></script>
+
+    <script>
+      let div = document.querySelector("div");
+      let button = document.querySelector("button");
+      button.onclick = () => {
+        const selection = document.getSelection().getRangeAt(0);
+        console.log(selection);
+        let html = `<b>${selection}</b>`;
+
+        var start =selection.startOffset;
+        var end = selection.endOffset;
+        var all = selection;
+        console.log("start: " + start);
+        console.log("end: " + end);
+       
+      };
+    </script>
+  </body>
+</html>

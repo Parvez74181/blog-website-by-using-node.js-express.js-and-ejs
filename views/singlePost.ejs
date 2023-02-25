@@ -1,0 +1,193 @@
+<!-- including header -->
+<%-include("header")-%>
+
+  <!-- including css -->
+  <link rel="stylesheet" href="../static/css/singlePost.css" />
+
+  <!-- single post section -->
+  <section class="blog">
+    <!-- if there is post in our database, then show them  -->
+    <!-- container -->
+    <div data-aos="zoom-in-up" data-aos-duration="800" class="card">
+      <!-- date section -->
+      <div class="show-date">
+        <span id="date">
+          <%=post.date%>
+        </span>
+      </div>
+
+      <!-- content -->
+      <div class="card-content">
+        <!-- blog feature image -->
+        <img id="content-img" src="<%=post.thumbnail%>" alt="" />
+
+        <!-- authore & time -->
+        <div class="data">
+          <span class="flex" id="authore">
+            <a href="">
+              <!--TODO: link of authore profile-->
+              <img src="<%=post.authore.profilePic%>" id="authore-image">
+            </a>
+            <i class="fa-solid fa-at"></i>
+            <%=post.authore.userName%>
+          </span>
+          <span id="time">
+            <i class="fa-regular fa-clock"></i>
+            <%=post.time%>
+          </span>
+        </div>
+
+        <!-- blog titile & description -->
+        <h2 id="title">
+          <%=post.title%>
+        </h2>
+        <!-- use "-" insted "=" to use the html stored data in your blog -->
+        <div id="description">
+          <%-post.description%>
+        </div>
+
+        <!-- like section -->
+        <div class="feelings">
+          <div class="like flex">
+            <i data-post="<%=post._id%>" data-user="<%=user._id%>"
+              class="<%= liked ? 'fa-solid' : 'fa-regular' %> fa-heart likeIcon" <%if(liked){%> style="color: #ff0000;"
+              <%}else{%> style="color: #fff;"<%}%>
+                  >
+            </i>
+            <!-- like count condition -->
+            <span id="totalLikes">
+              <%=totalLikes%>
+            </span>
+          </div>
+
+          <%if(!user){%>
+            <div style="display: none;" id="login-text">Please <a href="/user/sign-in">login</a> first. </div>
+            <%}%>
+        </div>
+
+        <!-- comment section -->
+        <div class="comment-container">
+          <!-- comments -->
+          <div class="comments">
+
+            <%if(comments){%>
+              <%comments.forEach(comment=>{%>
+
+                <!-- comment-content -->
+                <div class="comment-content">
+                  <div class='comment-reply-container'>
+                    <!-- user-data -->
+                    <div class="user-data">
+                      <img id="user-img" src="<%=comment.user.profilePic%>" />
+                    </div>
+
+                    <!-- comment -->
+                    <div class="comment">
+
+                      <!-- user name -->
+                      <span id="user-name">
+                        <%=comment.user.userName%>
+                      </span>
+
+                      <!-- comment body -->
+                      <p>
+                        <%=comment.body%>
+                      </p>
+
+                    </div>
+
+                    <!-- <button type="button" id="reply-toggol">reply (5)</button> -->
+                  </div>
+
+                  <!-- reply input box -->
+                  <div class="reply-input-box">
+                    <input id="reply" name="reply" data-comment='<%=comment._id%>' placeholder="reply...">
+
+                    <i class="fa-solid fa-paper-plane" data-comment='<%=comment._id%>' id="reply-send"></i>
+                  </div>
+
+                  <!-- replies -->
+                  <%comment.replies.forEach(reply=>{%>
+                    <div class="reply-content">
+                      <!-- user-data -->
+                      <div class="user-data">
+                        <img id="user-img" src="<%=reply.profilePic%>" />
+                      </div>
+
+                      <div class="comment">
+                        <!-- user name -->
+                        <span id="user-name">
+                          <%=reply.userName%>
+                        </span>
+                        <!-- reply body -->
+                        <p>
+                          <%=reply.body%>
+                        </p>
+                      </div>
+                    </div>
+
+
+                    <%})%>
+                </div>
+
+
+                <%})%>
+                  <%}%>
+
+          </div>
+
+
+          <!-- comment input box -->
+          <div class="comment-box">
+            <input id="comment" name="comment" placeholder="comment...">
+            <i class="fa-solid fa-paper-plane" id="comment-send" data-post="<%=post._id%>"></i>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- recent post section -->
+
+    <div class="recent-post">
+      <h1 class="h1">You might also like also:</h1>
+      <div class="recent-post-container flex">
+        <%posts.forEach(post=>{%>
+          <a href="/<%=post[0]._id%>">
+            <div class="recent-post-card ">
+              <!-- thumbnail -->
+              <div class="recent-post-thumbnail">
+                <img src="<%=post[0].thumbnail%>" alt="">
+              </div>
+
+              <!-- title and date -->
+              <div class="recent-post-content flex">
+                <div class="utils flex">
+                  <span class="recent-post-authore">
+                    <i class="fa-solid fa-at"></i> <%=post[0].authore.userName%>
+                  </span>
+                  
+                  <span class="recent-post-date">
+                    <i class="fa-regular fa-clock"></i> <%=post[0].date%>
+                  </span>
+                </div>
+                <h2 class="recent-post-title">
+                  <%=post[0].title%>
+                </h2>
+              </div>
+            </div>
+          </a>
+
+          <%})%>
+      </div>
+
+
+    </div>
+
+  </section>
+
+  <!-- including footer -->
+  <%-include("footer")-%>
+
+    <!-- including javascript -->
+    <script src="../static/js/single-post/comment.js"></script>
+    <script src="../static/js/single-post/like.js"></script>

@@ -1,0 +1,126 @@
+<!-- including header -->
+<%-include('header')%>
+
+  <!-- including css -->
+  <link rel="stylesheet" href="../static/css/profile-edit.css" />
+
+  <!-- main content -->
+
+  <main>
+    <div class="form-container">
+      <!-- profile-edit-form -->
+      <form id="profile-edit-form" action="/update/profile" method="post" enctype="multipart/form-data">
+        <h2>Update Your Profile</h2>
+        <ul id="user-data">
+          <img id="profile" src="<%=user.profilePic%>" alt="" />
+
+          <i class="fa-solid fa-pen"></i>
+          <input type="file" id="profilePic" name="profilePic" accept="image/*" />
+        </ul>
+
+        <!-- input data change -->
+        <div class="form-input">
+          <!-- user name -->
+          <div>
+            <input type="text" name="userName" value="<%=user.userName%>" />
+
+            <label for="userName" id="userName-label">User Name</label>
+          </div>
+          <!-- phone -->
+          <div>
+            <input type="tel" name="phone" value="0<%=user.phone%>" />
+
+            <label for="phone" id="phone-label">Phone</label>
+          </div>
+          <!-- address -->
+          <div>
+            <input type="text" name="address" value="<%=user.address%>" />
+            <label for="address" id="address-label">Address</label>
+          </div>
+          <!-- bio -->
+          <div>
+            <textarea type="text" name="bio" rows="5">
+<%if(profile){%><%=profile.bio%><%}%></textarea>
+            <label for="bio" id="bio-label">Add your bio</label>
+          </div>
+          <h3>Add Your Social Links:</h3>
+          <!-- social links -->
+          <div>
+            <div class="social-links">
+              <!-- facebook link -->
+              <div class="facebook flex">
+                <i class="fa-brands fa-facebook"></i>
+                <input type="text" name="facebook" value="<%if(profile){%><%=profile.links[0].facebook%><%}%>"
+                  id="fb-link" />
+              </div>
+
+              <!-- twitter link -->
+              <div class="twitter flex">
+                <i class="fa-brands fa-twitter"></i>
+                <input type="text" name="twitter" value="<%if(profile){%><%=profile.links[0].twitter%><%}%>"
+                  id="twitter-link" />
+              </div>
+
+              <!-- instagram link -->
+              <div class="instagram flex">
+                <i class="fa-brands fa-instagram"></i>
+                <input type="text" name="instagram" value="<%if(profile){%><%=profile.links[0].instagram%><%}%>"
+                  id="instagram-link" />
+              </div>
+
+              <!-- youtube link -->
+              <div class="youtube flex">
+                <i class="fa-brands fa-youtube"></i>
+                <input type="text" name="youtube" value="<%if(profile){%><%=profile.links[0].youtube%><%}%>"
+                  id="youtube-link" />
+              </div>
+
+              <!-- linkedin link -->
+              <div class="linkedin flex">
+                <i class="fa-brands fa-linkedin-in"></i>
+                <input type="text" name="linkedin" value="<%if(profile){%><%=profile.links[0].linkedin%><%}%>"
+                  id="linkedin-link" />
+              </div>
+
+              <!-- website link -->
+              <div class="website flex">
+                <i class="fa-brands fa-edge"></i>
+                <input type="text" name="website" value="<%if(profile){%><%=profile.links[0].website%><%}%>"
+                  id="wb-link" />
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <button type="submit" id="btn">Update</button>
+      </form>
+
+      <!-- modal for image editing -->
+      <div class="crop-modal content-image-modal">
+        <div class="modal-content">
+          <span id="modal-close">
+            <i class="fa-solid fa-xmark close_icon"></i>
+          </span>
+          <div class="modal-body">
+            <!-- image will appere here -->
+            <div class="preview-image"></div>
+          </div>
+          <hr />
+          <div class="modal-buttons">
+            <button type="button" class="btn" id="cancel">Cancel</button>
+            <button type="button" class="btn" id="done">Done</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+  <!-- space box -->
+  <div class="space"></div>
+
+
+
+  <!-- including footer -->
+  <%-include('footer')%>
+
+    <!-- my javascript -->
+    <script src="../static/js/profile-edit.js"></script>

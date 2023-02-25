@@ -1,0 +1,890 @@
+@import "./_colorCode"; //import color code
+.categories {
+    display: none;
+}
+
+//main section
+
+section {
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 99vw;
+    margin-bottom: 2rem;
+
+    //- post section
+    #create-post-form {
+        position: relative;
+        width: 70vw;
+        margin: auto;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        transform: translateX(10rem);
+        .img-upload-container {
+            position: relative;
+            padding: 15rem 0 5rem 0;
+            margin: auto;
+            flex-direction: column;
+            #thumbnail-details {
+                position: relative;
+                width: 15rem;
+                height: 15rem;
+                border: 2px dotted $white;
+                border-radius: 1rem;
+                i {
+                    color: $white;
+                    font-size: 8rem;
+                    cursor: pointer;
+                }
+                p {
+                    color: $white;
+                    font-size: 1.1rem;
+                }
+            }
+            #containerPreviewImage {
+                display: none;
+                position: relative;
+                max-width: 100rem;
+                object-fit: contain;
+            }
+            #preview-image-remove-btn {
+                display: none;
+                width: 10rem;
+                background: rgb(47, 0, 94);
+                transform: translateY(1rem);
+                font-size: 1.5rem;
+            }
+
+            // modal
+            .crop-modal {
+                position: fixed;
+                width: 70vw;
+                margin: auto;
+                height: 100vh;
+                top: 0;
+                z-index: 1;
+                display: flex;
+                justify-content: center;
+                transform: scale(0);
+                .modal-content {
+                    position: relative;
+                    background: $white;
+                    width: 50%;
+                    height: 50%;
+                    border-radius: 0.5rem;
+                    padding: 2rem;
+                    z-index: 5;
+                    transform: scale(0);
+                    transform-origin: top center;
+                    transition: 0.4s;
+                    #modal-close {
+                        position: absolute;
+                        top: 1%;
+                        right: 1%;
+                        width: 3rem;
+                        height: 3rem;
+                        list-style: none;
+                        border-radius: 0.5rem;
+                        padding: 1rem;
+                        cursor: pointer;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        user-select: none;
+                        z-index: 2;
+                        .fa-xmark {
+                            position: absolute;
+                            top: 50%;
+                            left: 50%;
+                            transform: translate(-50%, -50%);
+                            font-size: 1.7rem;
+                            width: 3rem;
+                            height: 3rem;
+                            display: flex;
+                            justify-content: center;
+                            align-items: center;
+                            transition: 0.1s;
+                            color: $black;
+                            &:hover {
+                                background-color: rgba(255, 255, 255, 0.1);
+                                border-radius: 0.5rem;
+                            }
+                        }
+                    }
+
+                    .modal-body {
+                        position: absolute;
+                        width: 90%;
+                        height: 60%;
+                        top: 10%;
+                        left: 5%;
+                        bottom: 15%;
+                        .preview-image {
+                            #image {
+                                position: absolute;
+                                top: 0;
+                                left: 0;
+                                width: 100%;
+                                height: 100%;
+                                object-fit: contain;
+                            }
+                        }
+                    }
+                    hr {
+                        position: relative;
+                        top: 80%;
+                        border: 0.5px solid $blue;
+                    }
+                    .modal-buttons {
+                        position: absolute;
+                        bottom: 5%;
+                        right: 5%;
+                        #cancel {
+                            background: #444;
+                            transition: 0.1s;
+                            border-color: #444;
+                            color: $ghost-white;
+                            margin-right: 2rem;
+                            box-shadow: -0.5rem 0.5rem #222;
+                            &:active {
+                                top: 0.4rem;
+                                box-shadow: -0.2rem 0.2rem #222;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        #upload {
+            display: none;
+        }
+
+        #title {
+            width: 73%;
+            height: 5rem;
+            resize: none;
+            outline: none;
+            margin-top: 5rem;
+            padding: 1rem;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(4rem);
+            margin-bottom: 0rem;
+            border: none;
+            border-radius: 0.5rem;
+            color: rgba(255, 255, 255, 0.8);
+            transition: 0.3s;
+            box-shadow: 0px 0px 2rem rgba(0, 0, 0, 0.3);
+
+            &::placeholder {
+                color: $white;
+            }
+        }
+
+        // custome tag addBox
+        .customTagBox {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(4rem);
+            display: flex;
+            align-items: center;
+            justify-content: space-evenly;
+            flex-wrap: wrap;
+            margin: 2rem;
+            width: 73%;
+            border-radius: 1rem;
+            box-shadow: 0px 0px 2rem rgba(0, 0, 0, 0.2);
+            flex-wrap: wrap;
+            .tags {
+                width: 3rem;
+                height: 3rem;
+                background: transparent;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                outline: none;
+                border: none;
+                padding: 1rem;
+                border-radius: 0.5rem;
+                margin: 1.6rem;
+                cursor: pointer;
+                color: $white;
+
+                i {
+                    font-size: 1.5rem;
+                }
+            }
+
+            .headeing,
+            #fontSize {
+                margin: 2rem;
+                width: 10%;
+                outline: none;
+                cursor: pointer;
+                background: transparent;
+                color: $black;
+            }
+
+            .input-wrapper {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                label {
+                    color: $white;
+                }
+                #foreColor,
+                #backColor {
+                    margin: 2rem;
+                    cursor: pointer;
+                    appearance: none;
+                    border: none;
+                    outline: none;
+                    background: transparent;
+                    &::-webkit-color-swatch {
+                        border-radius: 1rem;
+                    }
+                }
+            }
+
+            #text-input {
+                width: 95%;
+                margin: 3rem auto;
+                border-radius: 1rem;
+                padding: 1rem;
+                height: 30rem;
+                resize: none;
+                overflow: hidden;
+                overflow-y: scroll;
+                color: $white;
+                border: 1px solid rgba(255, 255, 255, 0.2);
+                font-size: 1.6rem;
+                &:focus {
+                    outline: none;
+                }
+                img {
+                    display: block;
+                    margin: 2rem 1rem;
+                    height: 70%;
+                    object-fit: fill;
+                }
+            }
+        }
+
+        .keywords {
+            width: 90%;
+            justify-content: space-around;
+            .tags {
+                background: rgba(255, 255, 255, 0.1);
+                box-shadow: 0 0 2rem rgba(0, 0, 0, 0.3);
+                width: 45%;
+                border-radius: 1rem;
+                h1 {
+                    text-align: start;
+                    // position: fixed;
+                    padding: 1rem 0 0 1rem;
+                    margin: 0;
+                    font-size: 1.5rem;
+                    color: rgba(255, 255, 255, 0.5);
+                    &::after {
+                        width: 0;
+                    }
+                    i {
+                        padding-right: 0.5rem;
+                    }
+                }
+                .tag-box {
+                    padding: 1rem;
+                    display: flex;
+                    align-items: center;
+                    flex-wrap: wrap;
+                    margin-top: 1rem;
+                    border-radius: 1rem;
+                    max-height: 25rem;
+                    overflow-y: scroll;
+                    .tag {
+                        color: $ghost-white;
+                        display: inline;
+                        margin: 0.5rem;
+                        padding: 0.5rem;
+                        padding-left: 1rem;
+                        font-size: 1.5rem;
+                        background: #0050ac;
+                        border-radius: 0.6rem;
+
+                        span {
+                            display: flex;
+                            justify-content: center;
+                            align-items: center;
+                            font-weight: 500;
+                            i {
+                                display: flex;
+                                justify-content: center;
+                                align-items: center;
+                                font-size: 1rem;
+                                margin-left: 1rem;
+                                width: 2rem;
+                                height: 2rem;
+                                background: rgba(76, 138, 255, 0.5);
+                                border-radius: 0.5rem;
+                                cursor: pointer;
+                            }
+                        }
+                    }
+                }
+                #tag-input {
+                    flex: 1;
+                    border: none;
+                    outline: none;
+                    background: transparent;
+                    padding: 1rem;
+                    margin: 1rem;
+                    font-size: 1.6rem;
+                    opacity: 1;
+                    color: $white;
+                    &::placeholder {
+                        font-size: 1.5rem;
+                        opacity: 0.8;
+                        color: $white;
+                    }
+                }
+            }
+            #categories {
+                flex-direction: column;
+                height: 30rem;
+                label {
+                    color: $white;
+                    font-size: 1.6rem;
+                    padding: 0.5rem;
+                }
+                select {
+                    outline: none;
+                    background: transparent;
+                    border: none;
+                    padding: 1rem;
+                    height: 60%;
+                    width: 100%;
+                    color: $white;
+                    option {
+                        font-size: 1.3rem;
+                        color: $white;
+                        padding: 1rem;
+                        outline: none;
+                        background: none;
+                        cursor: pointer;
+                    }
+                }
+
+                #newCategorie {
+                    font-size: 1.3rem;
+                    padding: 1rem;
+                    outline: none;
+                    border: 1px solid $white;
+                    border-radius: 0.5rem;
+                    background: transparent;
+                    color: $white;
+                    width: 100%;
+                    &::placeholder {
+                        color: $white;
+                    }
+                }
+
+                #addCategorie {
+                    margin-top: 1.5rem;
+                    width: 35%;
+                    right: 0;
+                    padding: 0.2rem;
+                    font-size: 1.5rem;
+                }
+            }
+        }
+        .submit-btn {
+            margin-top: 5%;
+            width: 20%;
+        }
+    }
+}
+
+// 320px — 480px: Mobile devices
+
+@media only screen and (min-width: 320px) and (max-width: 480px) {
+    section {
+        //- post section
+        #create-post-form {
+            transform: translateX(0rem);
+            .img-upload-container {
+                #thumbnail-details {
+                    width: 10rem;
+                    height: 10rem;
+                    i {
+                        font-size: 5rem;
+                    }
+                    p {
+                        font-size: 1.1rem;
+                    }
+                }
+                #containerPreviewImage {
+                    max-width: 100%;
+                }
+                #preview-image-remove-btn {
+                    width: 7rem;
+                    font-size: 1rem;
+                    padding: 0rem 1rem;
+                }
+
+                // modal
+                .crop-modal {
+                    width: 165vw;
+                    height: 90vh;
+                    top: 5rem;
+                    .modal-content {
+                        .modal-buttons {
+                            display: flex;
+                            #cancel {
+                                margin-right: 2rem;
+                                box-shadow: none;
+                                &:active {
+                                    top: 0rem;
+                                    box-shadow: none;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            #upload {
+                display: none;
+            }
+
+            #title {
+                width: 100%;
+                height: 3.5rem;
+                margin-top: 2rem;
+                padding: 0.5rem 1rem;
+                font-size: 1.4rem;
+                &::placeholder {
+                    font-size: 1.4rem;
+                }
+            }
+
+            // custome tag addBox
+            .customTagBox {
+                width: 100%;
+                .tags {
+                    i {
+                        font-size: 1.4rem;
+                    }
+                }
+
+                .headeing,
+                #fontSize {
+                    margin: 1rem;
+                    width: 20%;
+                }
+
+                .input-wrapper {
+                    width: 13rem;
+                    #foreColor,
+                    #backColor {
+                        margin: 1rem;
+                    }
+                }
+
+                #text-input {
+                    font-size: 1.5rem;
+
+                    img {
+                        display: block;
+                        margin: 2rem 1rem;
+                        max-height: 70%;
+                        max-width: 95%;
+                        object-fit: contain;
+                    }
+                }
+            }
+
+            .keywords {
+                width: 100%;
+                gap: 2rem;
+                .tags {
+                    width: 100%;
+                    h1 {
+                        font-size: 1.5rem;
+                    }
+                    .tag-box {
+                        .tag {
+                            font-size: 1.4rem;
+                            span {
+                                i {
+                                    font-size: 0.8rem;
+                                    width: 1.8rem;
+                                    height: 1.8rem;
+                                }
+                            }
+                        }
+                    }
+                    #tag-input {
+                        font-size: 1.4rem;
+                    }
+                }
+                #categories {
+                    label {
+                        font-size: 1.4rem;
+                    }
+
+                    #newCategorie {
+                        font-size: 1.3rem;
+                        &::placeholder {
+                            font-size: 1.3rem;
+                        }
+                    }
+
+                    #addCategorie {
+                        margin-top: 1.5rem;
+                        width: 100%;
+                        right: 0;
+                        padding: 0.2rem;
+                        font-size: 1.5rem;
+                    }
+                }
+            }
+            .submit-btn {
+                width: 100%;
+                height: 4rem;
+                font-size: 1.5rem;
+            }
+        }
+    }
+}
+
+// 481px — 768px: iPads, Tablets
+
+@media only screen and (min-width: 481px) and (max-width: 768px) {
+    section {
+        //- post section
+        #create-post-form {
+            transform: translateX(0rem);
+            .img-upload-container {
+                #thumbnail-details {
+                    width: 10rem;
+                    height: 10rem;
+                    i {
+                        font-size: 5rem;
+                    }
+                    p {
+                        font-size: 1.1rem;
+                    }
+                }
+                #containerPreviewImage {
+                    max-width: 100%;
+                }
+                #preview-image-remove-btn {
+                    width: 7rem;
+                    font-size: 1rem;
+                    padding: 0rem 1rem;
+                }
+
+                // modal
+                .crop-modal {
+                    width: 165vw;
+                    height: 90vh;
+                    top: 5rem;
+                    .modal-content {
+                        .modal-buttons {
+                            display: flex;
+                            #cancel {
+                                margin-right: 2rem;
+                                box-shadow: none;
+                                &:active {
+                                    top: 0rem;
+                                    box-shadow: none;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            #upload {
+                display: none;
+            }
+
+            #title {
+                width: 100%;
+                height: 4.5rem;
+                margin-top: 2rem;
+                padding: 0.5rem 1rem;
+                font-size: 1.4rem;
+                &::placeholder {
+                    font-size: 1.4rem;
+                }
+            }
+
+            // custome tag addBox
+            .customTagBox {
+                width: 100%;
+                .tags {
+                    i {
+                        font-size: 1.4rem;
+                    }
+                }
+
+                .headeing,
+                #fontSize {
+                    margin: 1rem;
+                    width: 20%;
+                }
+
+                .input-wrapper {
+                    width: 13rem;
+                    #foreColor,
+                    #backColor {
+                        margin: 1rem;
+                    }
+                }
+
+                #text-input {
+                    font-size: 1.5rem;
+
+                    img {
+                        display: block;
+                        margin: 2rem 1rem;
+                        max-height: 70%;
+                        max-width: 95%;
+                        object-fit: contain;
+                    }
+                }
+            }
+
+            .keywords {
+                width: 100%;
+                gap: 2rem;
+                .tags {
+                    width: 100%;
+                    h1 {
+                        font-size: 1.5rem;
+                    }
+                    .tag-box {
+                        .tag {
+                            font-size: 1.4rem;
+                            span {
+                                i {
+                                    font-size: 0.8rem;
+                                    width: 1.8rem;
+                                    height: 1.8rem;
+                                }
+                            }
+                        }
+                    }
+                    #tag-input {
+                        font-size: 1.4rem;
+                    }
+                }
+                #categories {
+                    label {
+                        font-size: 1.4rem;
+                    }
+
+                    #newCategorie {
+                        font-size: 1.3rem;
+                        &::placeholder {
+                            font-size: 1.3rem;
+                        }
+                    }
+
+                    #addCategorie {
+                        margin-top: 1.5rem;
+                        width: 100%;
+                        right: 0;
+                        padding: 0.2rem;
+                        font-size: 1.5rem;
+                    }
+                }
+            }
+            .submit-btn {
+                width: 100%;
+                height: 4rem;
+                font-size: 1.5rem;
+            }
+        }
+    }
+}
+
+// 769px — 1024px: Small screens, laptops
+@media only screen and (min-width: 769px) and (max-width: 1024px) {
+    section {
+        //- post section
+        #create-post-form {
+            transform: translateX(11rem);
+            width: 60vw;
+            .img-upload-container {
+                #thumbnail-details {
+                    width: 15rem;
+                    height: 15rem;
+                    i {
+                        font-size: 7rem;
+                    }
+                    p {
+                        font-size: 1.5rem;
+                    }
+                }
+                #containerPreviewImage {
+                    max-width: 100%;
+                }
+                #preview-image-remove-btn {
+                    width: 7rem;
+                    font-size: 1rem;
+                    padding: 0rem 1rem;
+                }
+
+                // modal
+                .crop-modal {
+                    width: 120vw;
+                    height: 90vh;
+                    top: 5rem;
+                    .modal-content {
+                        .modal-buttons {
+                            display: flex;
+                            #cancel {
+                                margin-right: 2rem;
+                                box-shadow: none;
+                                &:active {
+                                    top: 0rem;
+                                    box-shadow: none;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            #upload {
+                display: none;
+            }
+
+            #title {
+                width: 100%;
+                height: 3.5rem;
+                margin-top: 2rem;
+                padding: 0.5rem 1rem;
+                font-size: 1.4rem;
+                &::placeholder {
+                    font-size: 1.4rem;
+                }
+            }
+
+            // custome tag addBox
+            .customTagBox {
+                width: 100%;
+                .tags {
+                    i {
+                        font-size: 1.4rem;
+                    }
+                }
+
+                .headeing,
+                #fontSize {
+                    margin: 1rem;
+                    width: 20%;
+                }
+
+                .input-wrapper {
+                    width: 13rem;
+                    #foreColor,
+                    #backColor {
+                        margin: 1rem;
+                    }
+                }
+
+                #text-input {
+                    font-size: 1.5rem;
+
+                    img {
+                        display: block;
+                        margin: 2rem 1rem;
+                        max-height: 70%;
+                        max-width: 95%;
+                        object-fit: contain;
+                    }
+                }
+            }
+
+            .keywords {
+                width: 100%;
+                gap: 2rem;
+                .tags {
+                    width: 100%;
+                    h1 {
+                        font-size: 1.5rem;
+                    }
+                    .tag-box {
+                        .tag {
+                            font-size: 1.4rem;
+                            span {
+                                i {
+                                    font-size: 0.8rem;
+                                    width: 1.8rem;
+                                    height: 1.8rem;
+                                }
+                            }
+                        }
+                    }
+                    #tag-input {
+                        font-size: 1.4rem;
+                    }
+                }
+                #categories {
+                    label {
+                        font-size: 1.4rem;
+                    }
+
+                    #newCategorie {
+                        font-size: 1.3rem;
+                        &::placeholder {
+                            font-size: 1.3rem;
+                        }
+                    }
+
+                    #addCategorie {
+                        margin-top: 1.5rem;
+                        width: 100%;
+                        right: 0;
+                        padding: 0.2rem;
+                        font-size: 1.5rem;
+                    }
+                }
+            }
+            .submit-btn {
+                width: 80%;
+                height: 5rem;
+                font-size: 1.5rem;
+            }
+        }
+    }
+}
+// 1025px — 1200px: Desktops, large screens
+@media only screen and (min-width: 1025px) and (max-width: 1200px) {
+    section {
+        //- post section
+        #create-post-form {
+            .img-upload-container {
+                // modal
+                .crop-modal {
+                    width: 100vw;
+                    height: 90vh;
+                    top: 5rem;
+                    .modal-content {
+                        .modal-buttons {
+                            display: flex;
+                            #cancel {
+                                margin-right: 2rem;
+                                box-shadow: none;
+                                &:active {
+                                    top: 0rem;
+                                    box-shadow: none;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

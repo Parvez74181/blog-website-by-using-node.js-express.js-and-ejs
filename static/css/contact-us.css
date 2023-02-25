@@ -1,0 +1,561 @@
+.categories {
+  display: none;
+}
+
+body {
+  background: url("../img/blog-page-bg.jpg");
+  background-position: center;
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+#contact {
+  background: #fff;
+  color: #D72638;
+  border-radius: 0.5rem;
+  transform: translateX(1rem);
+}
+
+.contact-us {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+}
+.contact-us #contact-us-bg {
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.contact-us .container {
+  position: relative;
+  margin-top: 5rem;
+  width: 70%;
+  height: 70%;
+  transform: translateX(10rem);
+  background: rgba(0, 0, 0, 0.05);
+  border-radius: 1rem;
+  -webkit-backdrop-filter: blur(10px);
+          backdrop-filter: blur(10px);
+  box-shadow: 0rem 0rem 1rem rgba(0, 0, 0, 0.2), 0rem 0rem 3rem rgba(0, 0, 0, 0.2);
+  display: grid;
+  justify-items: center;
+  align-items: center;
+  grid-template-columns: 50rem repeat(1, 1fr);
+}
+.contact-us .container .info {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  border-radius: 1rem;
+  flex-direction: column;
+  color: #FFFFFF;
+}
+.contact-us .container .info h1 {
+  position: relative;
+  text-align: center;
+  margin-top: 3rem;
+  padding: 2rem 2rem 0.5rem 2rem;
+  font-size: 3rem;
+}
+.contact-us .container .info h1::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 20%;
+  height: 2px;
+  background: #FFFFFF;
+}
+.contact-us .container .info p {
+  margin-top: 2rem;
+  font-size: 2rem;
+  text-align: center;
+  padding: 2rem;
+}
+.contact-us .container .info a {
+  position: relative;
+  font-size: 1.5rem;
+  top: 3.5rem;
+  padding: 1rem 4rem;
+  text-decoration: none;
+  color: #FFFFFF;
+}
+.contact-us .container .info a img {
+  width: 2rem;
+  filter: invert(1);
+  margin-right: 1rem;
+}
+.contact-us .container .info .icon {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 2rem 3.5rem;
+  width: 100%;
+  position: relative;
+  top: 2%;
+}
+.contact-us .container .info .icon a {
+  position: relative;
+  padding: 0;
+  width: 5rem;
+  height: 5rem;
+}
+.contact-us .container .info .icon a img {
+  width: 4rem;
+  filter: invert(0);
+  transition: 0.4s;
+}
+.contact-us .container .info .icon a img:hover {
+  transform: scale(1.2);
+}
+.contact-us .container form {
+  width: 100%;
+  height: 100%;
+  display: grid;
+  transform: translateX(-1.5rem);
+  grid-template-rows: repeat(2, 0.6fr) 22rem;
+  gap: 1rem;
+  align-items: center;
+}
+.contact-us .container form span {
+  font-size: 1.5rem;
+  transform: translate(1rem, -3rem);
+  transition: 0.3s;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  color: white;
+  z-index: -1;
+}
+.contact-us .container form input {
+  outline: none;
+  border: none;
+  background: transparent;
+  border: 1px solid #FFFFFF;
+  border-radius: 0.5rem;
+  width: 135%;
+  padding: 0.5rem 0.5rem;
+  font-size: 1.8rem;
+  color: #FFFFFF;
+  transition: 0.3s;
+}
+.contact-us .container form input:focus {
+  box-shadow: 0rem 0rem 0.5rem #FFFFFF;
+}
+.contact-us .container form input:focus ~ span,
+.contact-us .container form input:valid ~ span {
+  transform: translateY(-6.5rem);
+  font-size: 1rem;
+}
+.contact-us .container form .name-info,
+.contact-us .container form .others-info {
+  justify-content: space-around;
+  transform: translateX(-4rem);
+  align-items: baseline;
+  height: 4rem;
+}
+.contact-us .container form .name-info div,
+.contact-us .container form .others-info div {
+  align-items: baseline;
+  flex-direction: column;
+}
+.contact-us .container form .msg-area {
+  transform: translateY(-3rem);
+}
+.contact-us .container form .msg-area div {
+  align-items: baseline;
+  flex-direction: column;
+}
+.contact-us .container form .msg-area div span {
+  transform: translate(1rem, -1.5rem);
+  font-size: 1.5rem;
+}
+.contact-us .container form .msg-area div #message {
+  border: 1px solid #FFFFFF;
+  background: transparent;
+  padding: 1rem;
+  color: #FFFFFF;
+  width: 75rem;
+  resize: none;
+  border-radius: 1rem;
+  font-size: 1.6rem;
+  position: relative;
+  outline: none;
+  transition: 0.3s;
+}
+.contact-us .container form .msg-area div #message:focus {
+  box-shadow: 0rem 0rem 0.5rem #FFFFFF;
+}
+.contact-us .container form .msg-area div #message:focus ~ span,
+.contact-us .container form .msg-area div #message:valid ~ span {
+  transform: translateY(-16rem);
+}
+.contact-us .container form .msg-area div .btn {
+  transform: translateY(1.8rem);
+  position: relative;
+  right: -86%;
+}
+
+@media only screen and (min-width: 320px) and (max-width: 480px) {
+  .flex {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+  .contact-us {
+    position: relative;
+    width: 100vw;
+    height: auto;
+  }
+  .contact-us .container {
+    margin-top: 25%;
+    width: 90%;
+    height: auto;
+    grid-template-columns: auto;
+    transform: translateX(0);
+  }
+  .contact-us .container .info h1 {
+    margin-top: 0.7rem;
+    padding: 2rem 2rem 0.5rem 2rem;
+    font-size: 2.5rem;
+  }
+  .contact-us .container .info p {
+    margin-top: 0.7rem;
+    font-size: 1.7rem;
+  }
+  .contact-us .container .info a {
+    position: relative;
+    font-size: 1.5rem;
+    top: 0.7rem;
+  }
+  .contact-us .container .info a img {
+    width: 1.6rem;
+    margin-right: 1rem;
+  }
+  .contact-us .container .info .icon {
+    top: 0%;
+  }
+  .contact-us .container .info .icon a img {
+    width: 3rem;
+  }
+  .contact-us .container form {
+    transform: translateX(0);
+  }
+  .contact-us .container form input {
+    width: 100%;
+  }
+  .contact-us .container form .name-info,
+.contact-us .container form .others-info {
+    justify-content: space-around;
+    transform: translateX(0rem);
+    align-items: center;
+    flex-wrap: wrap;
+    height: 17rem;
+  }
+  .contact-us .container form .name-info div,
+.contact-us .container form .others-info div {
+    align-items: baseline;
+    flex-direction: column;
+    width: 80%;
+  }
+  .contact-us .container form .msg-area {
+    transform: translateY(-2rem);
+    position: relative;
+    width: 100%;
+    height: 50%;
+  }
+  .contact-us .container form .msg-area div {
+    width: 90%;
+  }
+  .contact-us .container form .msg-area div span {
+    transform: translate(0rem, -1.5rem);
+    font-size: 1.5rem;
+  }
+  .contact-us .container form .msg-area div #message {
+    width: 100%;
+    height: 10rem;
+    transform: translateX(0rem);
+  }
+  .contact-us .container form .msg-area div .btn {
+    width: 100%;
+    right: 0%;
+  }
+}
+@media only screen and (min-width: 481px) and (max-width: 768px) {
+  .flex {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+  .contact-us {
+    position: relative;
+    width: 100vw;
+    height: auto;
+  }
+  .contact-us .container {
+    margin-top: 25%;
+    width: 80%;
+    height: auto;
+    grid-template-columns: auto;
+    transform: translateX(0);
+  }
+  .contact-us .container .info h1 {
+    margin-top: 0.7rem;
+    padding: 2rem 2rem 0.5rem 2rem;
+    font-size: 3rem;
+  }
+  .contact-us .container .info p {
+    margin-top: 1rem;
+    font-size: 2rem;
+    padding: 1rem 6rem;
+  }
+  .contact-us .container .info a {
+    position: relative;
+    font-size: 2rem;
+    top: 1rem;
+    padding: 1rem 6rem;
+  }
+  .contact-us .container .info a img {
+    width: 2rem;
+    margin-right: 1rem;
+  }
+  .contact-us .container .info .icon {
+    top: 0%;
+    width: 70%;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  .contact-us .container .info .icon a img {
+    width: 3rem;
+  }
+  .contact-us .container form {
+    transform: translateX(0);
+  }
+  .contact-us .container form input {
+    width: 100%;
+  }
+  .contact-us .container form .name-info,
+.contact-us .container form .others-info {
+    justify-content: space-around;
+    transform: translateX(0rem);
+    align-items: center;
+    flex-wrap: wrap;
+    height: 17rem;
+  }
+  .contact-us .container form .name-info div,
+.contact-us .container form .others-info div {
+    align-items: baseline;
+    flex-direction: column;
+    width: 80%;
+  }
+  .contact-us .container form .msg-area {
+    transform: translateY(-2rem);
+    position: relative;
+    width: 100%;
+    height: 50%;
+  }
+  .contact-us .container form .msg-area div {
+    width: 80%;
+  }
+  .contact-us .container form .msg-area div span {
+    transform: translate(0rem, -1.5rem);
+    font-size: 1.5rem;
+  }
+  .contact-us .container form .msg-area div #message {
+    width: 100%;
+    height: 10rem;
+    transform: translateX(0rem);
+  }
+  .contact-us .container form .msg-area div .btn {
+    width: 100%;
+    right: 0%;
+  }
+}
+@media only screen and (min-width: 769px) and (max-width: 1024px) {
+  .flex {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+  .contact-us {
+    position: relative;
+    width: 100vw;
+    height: auto;
+  }
+  .contact-us .container {
+    margin-top: 20%;
+    transform: translateX(11.5rem);
+    width: 65%;
+    height: auto;
+    grid-template-columns: auto;
+  }
+  .contact-us .container .info h1 {
+    margin-top: 0.7rem;
+    padding: 2rem 2rem 0.5rem 2rem;
+    font-size: 3rem;
+  }
+  .contact-us .container .info p {
+    margin-top: 1rem;
+    font-size: 2rem;
+    padding: 1rem 6rem;
+  }
+  .contact-us .container .info a {
+    position: relative;
+    font-size: 2rem;
+    top: 1rem;
+    padding: 1rem 6rem;
+  }
+  .contact-us .container .info a img {
+    width: 2rem;
+    margin-right: 1rem;
+  }
+  .contact-us .container .info .icon {
+    top: 0%;
+    width: 70%;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  .contact-us .container .info .icon a img {
+    width: 3rem;
+  }
+  .contact-us .container form {
+    transform: translateX(0);
+  }
+  .contact-us .container form input {
+    width: 100%;
+  }
+  .contact-us .container form .name-info,
+.contact-us .container form .others-info {
+    justify-content: space-around;
+    transform: translateX(0rem);
+    align-items: center;
+    flex-wrap: wrap;
+    height: 15rem;
+  }
+  .contact-us .container form .name-info div,
+.contact-us .container form .others-info div {
+    align-items: baseline;
+    flex-direction: column;
+    width: 80%;
+  }
+  .contact-us .container form .msg-area {
+    transform: translateY(-2rem);
+    position: relative;
+    width: 100%;
+    height: 50%;
+  }
+  .contact-us .container form .msg-area div {
+    width: 80%;
+  }
+  .contact-us .container form .msg-area div span {
+    transform: translate(0rem, -1.5rem);
+    font-size: 1.5rem;
+  }
+  .contact-us .container form .msg-area div #message {
+    width: 100%;
+    height: 10rem;
+    transform: translateX(0rem);
+  }
+  .contact-us .container form .msg-area div .btn {
+    width: 100%;
+    right: 0%;
+  }
+}
+@media only screen and (min-width: 1025px) and (max-width: 1200px) {
+  .flex {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+  .contact-us {
+    position: relative;
+    width: 100vw;
+    height: auto;
+  }
+  .contact-us .container {
+    margin-top: 10%;
+    transform: translateX(7rem);
+    width: 65%;
+    height: auto;
+    grid-template-columns: auto;
+  }
+  .contact-us .container .info h1 {
+    margin-top: 0.7rem;
+    padding: 2rem 2rem 0.5rem 2rem;
+    font-size: 3rem;
+  }
+  .contact-us .container .info p {
+    margin-top: 1rem;
+    font-size: 2rem;
+    padding: 1rem 6rem;
+  }
+  .contact-us .container .info a {
+    position: relative;
+    font-size: 2rem;
+    top: 1rem;
+    padding: 1rem 6rem;
+  }
+  .contact-us .container .info a img {
+    width: 2rem;
+    margin-right: 1rem;
+  }
+  .contact-us .container .info .icon {
+    top: 0%;
+    width: 70%;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  .contact-us .container .info .icon a img {
+    width: 3rem;
+  }
+  .contact-us .container form {
+    transform: translateX(0);
+  }
+  .contact-us .container form input {
+    width: 100%;
+  }
+  .contact-us .container form .name-info,
+.contact-us .container form .others-info {
+    justify-content: space-around;
+    transform: translateX(0rem);
+    align-items: center;
+    flex-wrap: wrap;
+    height: 17rem;
+  }
+  .contact-us .container form .name-info div,
+.contact-us .container form .others-info div {
+    align-items: baseline;
+    flex-direction: column;
+    width: 80%;
+  }
+  .contact-us .container form .msg-area {
+    transform: translateY(-2rem);
+    position: relative;
+    width: 100%;
+    height: 50%;
+  }
+  .contact-us .container form .msg-area div {
+    width: 80%;
+  }
+  .contact-us .container form .msg-area div span {
+    transform: translate(0rem, -1.5rem);
+    font-size: 1.5rem;
+  }
+  .contact-us .container form .msg-area div #message {
+    width: 100%;
+    height: 10rem;
+    transform: translateX(0rem);
+  }
+  .contact-us .container form .msg-area div .btn {
+    width: 100%;
+    right: 0%;
+  }
+}/*# sourceMappingURL=contact-us.css.map */

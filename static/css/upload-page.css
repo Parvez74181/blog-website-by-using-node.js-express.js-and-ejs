@@ -1,0 +1,840 @@
+.categories {
+  display: none;
+}
+
+section {
+  position: relative;
+  top: 0;
+  left: 0;
+  width: 99vw;
+  margin-bottom: 2rem;
+}
+section #create-post-form {
+  position: relative;
+  width: 70vw;
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  transform: translateX(10rem);
+}
+section #create-post-form .img-upload-container {
+  position: relative;
+  padding: 15rem 0 5rem 0;
+  margin: auto;
+  flex-direction: column;
+}
+section #create-post-form .img-upload-container #thumbnail-details {
+  position: relative;
+  width: 15rem;
+  height: 15rem;
+  border: 2px dotted #FFFFFF;
+  border-radius: 1rem;
+}
+section #create-post-form .img-upload-container #thumbnail-details i {
+  color: #FFFFFF;
+  font-size: 8rem;
+  cursor: pointer;
+}
+section #create-post-form .img-upload-container #thumbnail-details p {
+  color: #FFFFFF;
+  font-size: 1.1rem;
+}
+section #create-post-form .img-upload-container #containerPreviewImage {
+  display: none;
+  position: relative;
+  max-width: 100rem;
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+section #create-post-form .img-upload-container #preview-image-remove-btn {
+  display: none;
+  width: 10rem;
+  background: rgb(47, 0, 94);
+  transform: translateY(1rem);
+  font-size: 1.5rem;
+}
+section #create-post-form .img-upload-container .crop-modal {
+  position: fixed;
+  width: 70vw;
+  margin: auto;
+  height: 100vh;
+  top: 0;
+  z-index: 1;
+  display: flex;
+  justify-content: center;
+  transform: scale(0);
+}
+section #create-post-form .img-upload-container .crop-modal .modal-content {
+  position: relative;
+  background: #FFFFFF;
+  width: 50%;
+  height: 50%;
+  border-radius: 0.5rem;
+  padding: 2rem;
+  z-index: 5;
+  transform: scale(0);
+  transform-origin: top center;
+  transition: 0.4s;
+}
+section #create-post-form .img-upload-container .crop-modal .modal-content #modal-close {
+  position: absolute;
+  top: 1%;
+  right: 1%;
+  width: 3rem;
+  height: 3rem;
+  list-style: none;
+  border-radius: 0.5rem;
+  padding: 1rem;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  z-index: 2;
+}
+section #create-post-form .img-upload-container .crop-modal .modal-content #modal-close .fa-xmark {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 1.7rem;
+  width: 3rem;
+  height: 3rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: 0.1s;
+  color: #0C1618;
+}
+section #create-post-form .img-upload-container .crop-modal .modal-content #modal-close .fa-xmark:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 0.5rem;
+}
+section #create-post-form .img-upload-container .crop-modal .modal-content .modal-body {
+  position: absolute;
+  width: 90%;
+  height: 60%;
+  top: 10%;
+  left: 5%;
+  bottom: 15%;
+}
+section #create-post-form .img-upload-container .crop-modal .modal-content .modal-body .preview-image #image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+section #create-post-form .img-upload-container .crop-modal .modal-content hr {
+  position: relative;
+  top: 80%;
+  border: 0.5px solid #0e2b49;
+}
+section #create-post-form .img-upload-container .crop-modal .modal-content .modal-buttons {
+  position: absolute;
+  bottom: 5%;
+  right: 5%;
+}
+section #create-post-form .img-upload-container .crop-modal .modal-content .modal-buttons #cancel {
+  background: #444;
+  transition: 0.1s;
+  border-color: #444;
+  color: #f7f7fb;
+  margin-right: 2rem;
+  box-shadow: -0.5rem 0.5rem #222;
+}
+section #create-post-form .img-upload-container .crop-modal .modal-content .modal-buttons #cancel:active {
+  top: 0.4rem;
+  box-shadow: -0.2rem 0.2rem #222;
+}
+section #create-post-form #upload {
+  display: none;
+}
+section #create-post-form #title {
+  width: 73%;
+  height: 5rem;
+  resize: none;
+  outline: none;
+  margin-top: 5rem;
+  padding: 1rem;
+  background: rgba(255, 255, 255, 0.1);
+  -webkit-backdrop-filter: blur(4rem);
+          backdrop-filter: blur(4rem);
+  margin-bottom: 0rem;
+  border: none;
+  border-radius: 0.5rem;
+  color: rgba(255, 255, 255, 0.8);
+  transition: 0.3s;
+  box-shadow: 0px 0px 2rem rgba(0, 0, 0, 0.3);
+}
+section #create-post-form #title::-moz-placeholder {
+  color: #FFFFFF;
+}
+section #create-post-form #title:-ms-input-placeholder {
+  color: #FFFFFF;
+}
+section #create-post-form #title::placeholder {
+  color: #FFFFFF;
+}
+section #create-post-form .customTagBox {
+  background: rgba(255, 255, 255, 0.1);
+  -webkit-backdrop-filter: blur(4rem);
+          backdrop-filter: blur(4rem);
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  margin: 2rem;
+  width: 73%;
+  border-radius: 1rem;
+  box-shadow: 0px 0px 2rem rgba(0, 0, 0, 0.2);
+  flex-wrap: wrap;
+}
+section #create-post-form .customTagBox .tags {
+  width: 3rem;
+  height: 3rem;
+  background: transparent;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  outline: none;
+  border: none;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  margin: 1.6rem;
+  cursor: pointer;
+  color: #FFFFFF;
+}
+section #create-post-form .customTagBox .tags i {
+  font-size: 1.5rem;
+}
+section #create-post-form .customTagBox .headeing,
+section #create-post-form .customTagBox #fontSize {
+  margin: 2rem;
+  width: 10%;
+  outline: none;
+  cursor: pointer;
+  background: transparent;
+  color: #0C1618;
+}
+section #create-post-form .customTagBox .input-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+section #create-post-form .customTagBox .input-wrapper label {
+  color: #FFFFFF;
+}
+section #create-post-form .customTagBox .input-wrapper #foreColor,
+section #create-post-form .customTagBox .input-wrapper #backColor {
+  margin: 2rem;
+  cursor: pointer;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  border: none;
+  outline: none;
+  background: transparent;
+}
+section #create-post-form .customTagBox .input-wrapper #foreColor::-webkit-color-swatch,
+section #create-post-form .customTagBox .input-wrapper #backColor::-webkit-color-swatch {
+  border-radius: 1rem;
+}
+section #create-post-form .customTagBox #text-input {
+  width: 95%;
+  margin: 3rem auto;
+  border-radius: 1rem;
+  padding: 1rem;
+  height: 30rem;
+  resize: none;
+  overflow: hidden;
+  overflow-y: scroll;
+  color: #FFFFFF;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  font-size: 1.6rem;
+}
+section #create-post-form .customTagBox #text-input:focus {
+  outline: none;
+}
+section #create-post-form .customTagBox #text-input img {
+  display: block;
+  margin: 2rem 1rem;
+  height: 70%;
+  -o-object-fit: fill;
+     object-fit: fill;
+}
+section #create-post-form .keywords {
+  width: 90%;
+  justify-content: space-around;
+}
+section #create-post-form .keywords .tags {
+  background: rgba(255, 255, 255, 0.1);
+  box-shadow: 0 0 2rem rgba(0, 0, 0, 0.3);
+  width: 45%;
+  border-radius: 1rem;
+}
+section #create-post-form .keywords .tags h1 {
+  text-align: start;
+  padding: 1rem 0 0 1rem;
+  margin: 0;
+  font-size: 1.5rem;
+  color: rgba(255, 255, 255, 0.5);
+}
+section #create-post-form .keywords .tags h1::after {
+  width: 0;
+}
+section #create-post-form .keywords .tags h1 i {
+  padding-right: 0.5rem;
+}
+section #create-post-form .keywords .tags .tag-box {
+  padding: 1rem;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-top: 1rem;
+  border-radius: 1rem;
+  max-height: 25rem;
+  overflow-y: scroll;
+}
+section #create-post-form .keywords .tags .tag-box .tag {
+  color: #f7f7fb;
+  display: inline;
+  margin: 0.5rem;
+  padding: 0.5rem;
+  padding-left: 1rem;
+  font-size: 1.5rem;
+  background: #0050ac;
+  border-radius: 0.6rem;
+}
+section #create-post-form .keywords .tags .tag-box .tag span {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: 500;
+}
+section #create-post-form .keywords .tags .tag-box .tag span i {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1rem;
+  margin-left: 1rem;
+  width: 2rem;
+  height: 2rem;
+  background: rgba(76, 138, 255, 0.5);
+  border-radius: 0.5rem;
+  cursor: pointer;
+}
+section #create-post-form .keywords .tags #tag-input {
+  flex: 1;
+  border: none;
+  outline: none;
+  background: transparent;
+  padding: 1rem;
+  margin: 1rem;
+  font-size: 1.6rem;
+  opacity: 1;
+  color: #FFFFFF;
+}
+section #create-post-form .keywords .tags #tag-input::-moz-placeholder {
+  font-size: 1.5rem;
+  opacity: 0.8;
+  color: #FFFFFF;
+}
+section #create-post-form .keywords .tags #tag-input:-ms-input-placeholder {
+  font-size: 1.5rem;
+  opacity: 0.8;
+  color: #FFFFFF;
+}
+section #create-post-form .keywords .tags #tag-input::placeholder {
+  font-size: 1.5rem;
+  opacity: 0.8;
+  color: #FFFFFF;
+}
+section #create-post-form .keywords #categories {
+  flex-direction: column;
+  height: 30rem;
+}
+section #create-post-form .keywords #categories label {
+  color: #FFFFFF;
+  font-size: 1.6rem;
+  padding: 0.5rem;
+}
+section #create-post-form .keywords #categories select {
+  outline: none;
+  background: transparent;
+  border: none;
+  padding: 1rem;
+  height: 60%;
+  width: 100%;
+  color: #FFFFFF;
+}
+section #create-post-form .keywords #categories select option {
+  font-size: 1.3rem;
+  color: #FFFFFF;
+  padding: 1rem;
+  outline: none;
+  background: none;
+  cursor: pointer;
+}
+section #create-post-form .keywords #categories #newCategorie {
+  font-size: 1.3rem;
+  padding: 1rem;
+  outline: none;
+  border: 1px solid #FFFFFF;
+  border-radius: 0.5rem;
+  background: transparent;
+  color: #FFFFFF;
+  width: 100%;
+}
+section #create-post-form .keywords #categories #newCategorie::-moz-placeholder {
+  color: #FFFFFF;
+}
+section #create-post-form .keywords #categories #newCategorie:-ms-input-placeholder {
+  color: #FFFFFF;
+}
+section #create-post-form .keywords #categories #newCategorie::placeholder {
+  color: #FFFFFF;
+}
+section #create-post-form .keywords #categories #addCategorie {
+  margin-top: 1.5rem;
+  width: 35%;
+  right: 0;
+  padding: 0.2rem;
+  font-size: 1.5rem;
+}
+section #create-post-form .submit-btn {
+  margin-top: 5%;
+  width: 20%;
+}
+
+@media only screen and (min-width: 320px) and (max-width: 480px) {
+  section #create-post-form {
+    transform: translateX(0rem);
+  }
+  section #create-post-form .img-upload-container #thumbnail-details {
+    width: 10rem;
+    height: 10rem;
+  }
+  section #create-post-form .img-upload-container #thumbnail-details i {
+    font-size: 5rem;
+  }
+  section #create-post-form .img-upload-container #thumbnail-details p {
+    font-size: 1.1rem;
+  }
+  section #create-post-form .img-upload-container #containerPreviewImage {
+    max-width: 100%;
+  }
+  section #create-post-form .img-upload-container #preview-image-remove-btn {
+    width: 7rem;
+    font-size: 1rem;
+    padding: 0rem 1rem;
+  }
+  section #create-post-form .img-upload-container .crop-modal {
+    width: 165vw;
+    height: 90vh;
+    top: 5rem;
+  }
+  section #create-post-form .img-upload-container .crop-modal .modal-content .modal-buttons {
+    display: flex;
+  }
+  section #create-post-form .img-upload-container .crop-modal .modal-content .modal-buttons #cancel {
+    margin-right: 2rem;
+    box-shadow: none;
+  }
+  section #create-post-form .img-upload-container .crop-modal .modal-content .modal-buttons #cancel:active {
+    top: 0rem;
+    box-shadow: none;
+  }
+  section #create-post-form #upload {
+    display: none;
+  }
+  section #create-post-form #title {
+    width: 100%;
+    height: 3.5rem;
+    margin-top: 2rem;
+    padding: 0.5rem 1rem;
+    font-size: 1.4rem;
+  }
+  section #create-post-form #title::-moz-placeholder {
+    font-size: 1.4rem;
+  }
+  section #create-post-form #title:-ms-input-placeholder {
+    font-size: 1.4rem;
+  }
+  section #create-post-form #title::placeholder {
+    font-size: 1.4rem;
+  }
+  section #create-post-form .customTagBox {
+    width: 100%;
+  }
+  section #create-post-form .customTagBox .tags i {
+    font-size: 1.4rem;
+  }
+  section #create-post-form .customTagBox .headeing,
+section #create-post-form .customTagBox #fontSize {
+    margin: 1rem;
+    width: 20%;
+  }
+  section #create-post-form .customTagBox .input-wrapper {
+    width: 13rem;
+  }
+  section #create-post-form .customTagBox .input-wrapper #foreColor,
+section #create-post-form .customTagBox .input-wrapper #backColor {
+    margin: 1rem;
+  }
+  section #create-post-form .customTagBox #text-input {
+    font-size: 1.5rem;
+  }
+  section #create-post-form .customTagBox #text-input img {
+    display: block;
+    margin: 2rem 1rem;
+    max-height: 70%;
+    max-width: 95%;
+    -o-object-fit: contain;
+       object-fit: contain;
+  }
+  section #create-post-form .keywords {
+    width: 100%;
+    gap: 2rem;
+  }
+  section #create-post-form .keywords .tags {
+    width: 100%;
+  }
+  section #create-post-form .keywords .tags h1 {
+    font-size: 1.5rem;
+  }
+  section #create-post-form .keywords .tags .tag-box .tag {
+    font-size: 1.4rem;
+  }
+  section #create-post-form .keywords .tags .tag-box .tag span i {
+    font-size: 0.8rem;
+    width: 1.8rem;
+    height: 1.8rem;
+  }
+  section #create-post-form .keywords .tags #tag-input {
+    font-size: 1.4rem;
+  }
+  section #create-post-form .keywords #categories label {
+    font-size: 1.4rem;
+  }
+  section #create-post-form .keywords #categories #newCategorie {
+    font-size: 1.3rem;
+  }
+  section #create-post-form .keywords #categories #newCategorie::-moz-placeholder {
+    font-size: 1.3rem;
+  }
+  section #create-post-form .keywords #categories #newCategorie:-ms-input-placeholder {
+    font-size: 1.3rem;
+  }
+  section #create-post-form .keywords #categories #newCategorie::placeholder {
+    font-size: 1.3rem;
+  }
+  section #create-post-form .keywords #categories #addCategorie {
+    margin-top: 1.5rem;
+    width: 100%;
+    right: 0;
+    padding: 0.2rem;
+    font-size: 1.5rem;
+  }
+  section #create-post-form .submit-btn {
+    width: 100%;
+    height: 4rem;
+    font-size: 1.5rem;
+  }
+}
+@media only screen and (min-width: 481px) and (max-width: 768px) {
+  section #create-post-form {
+    transform: translateX(0rem);
+  }
+  section #create-post-form .img-upload-container #thumbnail-details {
+    width: 10rem;
+    height: 10rem;
+  }
+  section #create-post-form .img-upload-container #thumbnail-details i {
+    font-size: 5rem;
+  }
+  section #create-post-form .img-upload-container #thumbnail-details p {
+    font-size: 1.1rem;
+  }
+  section #create-post-form .img-upload-container #containerPreviewImage {
+    max-width: 100%;
+  }
+  section #create-post-form .img-upload-container #preview-image-remove-btn {
+    width: 7rem;
+    font-size: 1rem;
+    padding: 0rem 1rem;
+  }
+  section #create-post-form .img-upload-container .crop-modal {
+    width: 165vw;
+    height: 90vh;
+    top: 5rem;
+  }
+  section #create-post-form .img-upload-container .crop-modal .modal-content .modal-buttons {
+    display: flex;
+  }
+  section #create-post-form .img-upload-container .crop-modal .modal-content .modal-buttons #cancel {
+    margin-right: 2rem;
+    box-shadow: none;
+  }
+  section #create-post-form .img-upload-container .crop-modal .modal-content .modal-buttons #cancel:active {
+    top: 0rem;
+    box-shadow: none;
+  }
+  section #create-post-form #upload {
+    display: none;
+  }
+  section #create-post-form #title {
+    width: 100%;
+    height: 4.5rem;
+    margin-top: 2rem;
+    padding: 0.5rem 1rem;
+    font-size: 1.4rem;
+  }
+  section #create-post-form #title::-moz-placeholder {
+    font-size: 1.4rem;
+  }
+  section #create-post-form #title:-ms-input-placeholder {
+    font-size: 1.4rem;
+  }
+  section #create-post-form #title::placeholder {
+    font-size: 1.4rem;
+  }
+  section #create-post-form .customTagBox {
+    width: 100%;
+  }
+  section #create-post-form .customTagBox .tags i {
+    font-size: 1.4rem;
+  }
+  section #create-post-form .customTagBox .headeing,
+section #create-post-form .customTagBox #fontSize {
+    margin: 1rem;
+    width: 20%;
+  }
+  section #create-post-form .customTagBox .input-wrapper {
+    width: 13rem;
+  }
+  section #create-post-form .customTagBox .input-wrapper #foreColor,
+section #create-post-form .customTagBox .input-wrapper #backColor {
+    margin: 1rem;
+  }
+  section #create-post-form .customTagBox #text-input {
+    font-size: 1.5rem;
+  }
+  section #create-post-form .customTagBox #text-input img {
+    display: block;
+    margin: 2rem 1rem;
+    max-height: 70%;
+    max-width: 95%;
+    -o-object-fit: contain;
+       object-fit: contain;
+  }
+  section #create-post-form .keywords {
+    width: 100%;
+    gap: 2rem;
+  }
+  section #create-post-form .keywords .tags {
+    width: 100%;
+  }
+  section #create-post-form .keywords .tags h1 {
+    font-size: 1.5rem;
+  }
+  section #create-post-form .keywords .tags .tag-box .tag {
+    font-size: 1.4rem;
+  }
+  section #create-post-form .keywords .tags .tag-box .tag span i {
+    font-size: 0.8rem;
+    width: 1.8rem;
+    height: 1.8rem;
+  }
+  section #create-post-form .keywords .tags #tag-input {
+    font-size: 1.4rem;
+  }
+  section #create-post-form .keywords #categories label {
+    font-size: 1.4rem;
+  }
+  section #create-post-form .keywords #categories #newCategorie {
+    font-size: 1.3rem;
+  }
+  section #create-post-form .keywords #categories #newCategorie::-moz-placeholder {
+    font-size: 1.3rem;
+  }
+  section #create-post-form .keywords #categories #newCategorie:-ms-input-placeholder {
+    font-size: 1.3rem;
+  }
+  section #create-post-form .keywords #categories #newCategorie::placeholder {
+    font-size: 1.3rem;
+  }
+  section #create-post-form .keywords #categories #addCategorie {
+    margin-top: 1.5rem;
+    width: 100%;
+    right: 0;
+    padding: 0.2rem;
+    font-size: 1.5rem;
+  }
+  section #create-post-form .submit-btn {
+    width: 100%;
+    height: 4rem;
+    font-size: 1.5rem;
+  }
+}
+@media only screen and (min-width: 769px) and (max-width: 1024px) {
+  section #create-post-form {
+    transform: translateX(11rem);
+    width: 60vw;
+  }
+  section #create-post-form .img-upload-container #thumbnail-details {
+    width: 15rem;
+    height: 15rem;
+  }
+  section #create-post-form .img-upload-container #thumbnail-details i {
+    font-size: 7rem;
+  }
+  section #create-post-form .img-upload-container #thumbnail-details p {
+    font-size: 1.5rem;
+  }
+  section #create-post-form .img-upload-container #containerPreviewImage {
+    max-width: 100%;
+  }
+  section #create-post-form .img-upload-container #preview-image-remove-btn {
+    width: 7rem;
+    font-size: 1rem;
+    padding: 0rem 1rem;
+  }
+  section #create-post-form .img-upload-container .crop-modal {
+    width: 120vw;
+    height: 90vh;
+    top: 5rem;
+  }
+  section #create-post-form .img-upload-container .crop-modal .modal-content .modal-buttons {
+    display: flex;
+  }
+  section #create-post-form .img-upload-container .crop-modal .modal-content .modal-buttons #cancel {
+    margin-right: 2rem;
+    box-shadow: none;
+  }
+  section #create-post-form .img-upload-container .crop-modal .modal-content .modal-buttons #cancel:active {
+    top: 0rem;
+    box-shadow: none;
+  }
+  section #create-post-form #upload {
+    display: none;
+  }
+  section #create-post-form #title {
+    width: 100%;
+    height: 3.5rem;
+    margin-top: 2rem;
+    padding: 0.5rem 1rem;
+    font-size: 1.4rem;
+  }
+  section #create-post-form #title::-moz-placeholder {
+    font-size: 1.4rem;
+  }
+  section #create-post-form #title:-ms-input-placeholder {
+    font-size: 1.4rem;
+  }
+  section #create-post-form #title::placeholder {
+    font-size: 1.4rem;
+  }
+  section #create-post-form .customTagBox {
+    width: 100%;
+  }
+  section #create-post-form .customTagBox .tags i {
+    font-size: 1.4rem;
+  }
+  section #create-post-form .customTagBox .headeing,
+section #create-post-form .customTagBox #fontSize {
+    margin: 1rem;
+    width: 20%;
+  }
+  section #create-post-form .customTagBox .input-wrapper {
+    width: 13rem;
+  }
+  section #create-post-form .customTagBox .input-wrapper #foreColor,
+section #create-post-form .customTagBox .input-wrapper #backColor {
+    margin: 1rem;
+  }
+  section #create-post-form .customTagBox #text-input {
+    font-size: 1.5rem;
+  }
+  section #create-post-form .customTagBox #text-input img {
+    display: block;
+    margin: 2rem 1rem;
+    max-height: 70%;
+    max-width: 95%;
+    -o-object-fit: contain;
+       object-fit: contain;
+  }
+  section #create-post-form .keywords {
+    width: 100%;
+    gap: 2rem;
+  }
+  section #create-post-form .keywords .tags {
+    width: 100%;
+  }
+  section #create-post-form .keywords .tags h1 {
+    font-size: 1.5rem;
+  }
+  section #create-post-form .keywords .tags .tag-box .tag {
+    font-size: 1.4rem;
+  }
+  section #create-post-form .keywords .tags .tag-box .tag span i {
+    font-size: 0.8rem;
+    width: 1.8rem;
+    height: 1.8rem;
+  }
+  section #create-post-form .keywords .tags #tag-input {
+    font-size: 1.4rem;
+  }
+  section #create-post-form .keywords #categories label {
+    font-size: 1.4rem;
+  }
+  section #create-post-form .keywords #categories #newCategorie {
+    font-size: 1.3rem;
+  }
+  section #create-post-form .keywords #categories #newCategorie::-moz-placeholder {
+    font-size: 1.3rem;
+  }
+  section #create-post-form .keywords #categories #newCategorie:-ms-input-placeholder {
+    font-size: 1.3rem;
+  }
+  section #create-post-form .keywords #categories #newCategorie::placeholder {
+    font-size: 1.3rem;
+  }
+  section #create-post-form .keywords #categories #addCategorie {
+    margin-top: 1.5rem;
+    width: 100%;
+    right: 0;
+    padding: 0.2rem;
+    font-size: 1.5rem;
+  }
+  section #create-post-form .submit-btn {
+    width: 80%;
+    height: 5rem;
+    font-size: 1.5rem;
+  }
+}
+@media only screen and (min-width: 1025px) and (max-width: 1200px) {
+  section #create-post-form .img-upload-container .crop-modal {
+    width: 100vw;
+    height: 90vh;
+    top: 5rem;
+  }
+  section #create-post-form .img-upload-container .crop-modal .modal-content .modal-buttons {
+    display: flex;
+  }
+  section #create-post-form .img-upload-container .crop-modal .modal-content .modal-buttons #cancel {
+    margin-right: 2rem;
+    box-shadow: none;
+  }
+  section #create-post-form .img-upload-container .crop-modal .modal-content .modal-buttons #cancel:active {
+    top: 0rem;
+    box-shadow: none;
+  }
+}/*# sourceMappingURL=upload-page.css.map */

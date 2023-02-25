@@ -1,0 +1,90 @@
+<!-- including header -->
+<%-include("header")-%>
+
+<!-- including css -->
+<link rel="stylesheet" href="../static/css/blog.css" />
+<link rel="stylesheet" href="../static/css/news.css" />
+
+<!-- feature-img -->
+<div id="feature-img">
+  <h1>
+    <span>welcome</span> <br />
+    to our news
+  </h1>
+  <img src="../static/img/blog.jpg" alt="" />
+</div>
+
+<!-- up arrow for go to the top of the page -->
+<div class="up-arrow">
+  <a href="#">
+    <i class="fa-solid fa-arrow-down"></i>
+  </a>
+</div>
+
+<!-- blog section -->
+
+<section class="blog">
+  <!-- if there is post in our database, then show them  -->
+  <%if(posts){%>
+    <%posts.forEach(post=>{%>
+      <!-- container -->
+      <a href="/<%=post._id%>">
+        <div data-aos="zoom-in-up" data-aos-duration="800" class="card">
+          <!-- date section -->
+          <div class="show-date">
+            <span id="date">
+              <%=post.date%>
+            </span>
+          </div>
+
+          <!-- content -->
+          <div class="card-content">
+            <!-- blog feature image -->
+            <img id="content-img" src="<%=post.thumbnail%>" alt="" />
+
+            <!-- authore & time -->
+            <div class="data">
+              <span id="authore">
+                <i class="fa-solid fa-at"></i>
+                <%=post.authore.userName%>
+              </span>
+              <span id="time">
+                <i class="fa-regular fa-clock"></i>
+                <%=post.time%>
+              </span>
+            </div>
+
+            <!-- blog titile & description -->
+            <h2 id="title">
+              <%=post.title%>
+            </h2>
+            <!-- use "-" insted "=" to use the html stored data in your blog -->
+            <div id="description">
+              <%-post.description%>
+            </div>
+
+            <!-- read more button -->
+            <a href="<%=post._id%>"><button id="read-more">Read More</button></a>
+
+           
+       
+          </div>
+        </div>
+      </a>
+
+      <%})%>
+        <%}else{%>
+          <p>Nothing to show</p>
+          <%}%>
+</section>
+
+
+
+<!-- including footer -->
+<%-include("footer")-%>
+
+<!-- including javascript -->
+
+<script src="../static/js/blog.js"></script>
+</body>
+</html>

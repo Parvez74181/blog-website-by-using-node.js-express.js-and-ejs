@@ -1,0 +1,139 @@
+<!-- including header -->
+<%-include("header")-%>
+
+<!-- including css -->
+<link rel="stylesheet" href="../static/css/home.css" />
+
+<!-- home section -->
+<section>
+  <main>
+    <!-- featured-image-area -->
+    <div class="area">
+      <!-- animated circles -->
+      <ul class="circles">
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+      </ul>
+
+      <div class="heading flex">
+        <h1 class="flex" id="heading">
+          <p data-aos="fade-left" data-aos-duration="500">
+            Searching Content In Bangla
+            <i class="fa-solid fa-question"></i>
+          </p>
+
+          <p data-aos="fade-right" data-aos-duration="1000">
+            Didn't Found Anything <i class="fa-solid fa-question"></i>
+          </p>
+
+          <p data-aos="fade-left" data-aos-duration="1500">
+            You Can Get Here
+            <i style="color: red" class="fa-solid fa-heart"></i>
+          </p>
+        </h1>
+
+        <span
+          id="scroll-down-text"
+          class="flex"
+          data-aos="zoom-in-down"
+          data-aos-duration="1300"
+        >
+          Scroll Down
+          <span id="icon">
+            <i class="fa-solid fa-chevron-down"></i>
+          </span>
+        </span>
+      </div>
+    </div>
+
+    <!-- recent posts here -->
+
+    <div class="recent-posts">
+      <h1 class="h1">Recent Posts</h1>
+      <!-- blog section -->
+      <section class="blog">
+        <!-- if there is post in our database, then show them  -->
+        <%if(posts){%>
+          <%posts.forEach(post=>{%>
+            <!-- container -->
+            <a href="/<%=post._id%>">
+              <div data-aos="zoom-in-up" data-aos-duration="800" class="card">
+                <!-- date section -->
+                <div class="show-date">
+                  <span id="date">
+                    <%=post.date%>
+                  </span>
+                </div>
+  
+                <!-- content -->
+                <div class="card-content">
+                  <!-- blog feature image -->
+                  <img id="content-img" src="<%=post.thumbnail%>" alt="" />
+  
+                  <!-- authore & time -->
+                  <div class="data">
+                    <span id="authore">
+                      <i class="fa-solid fa-at"></i>
+                      <%=post.authore.userName%>
+                    </span>
+                    <span id="time">
+                      <i class="fa-regular fa-clock"></i>
+                      <%=post.time%>
+                    </span>
+                  </div>
+  
+                  <!-- blog titile & description -->
+                  <h2 id="title">
+                    <%=post.title%>
+                  </h2>
+                  <!-- use "-" insted "=" to use the html stored data in your blog -->
+                  <div id="description">
+                    <%-post.description%>
+                  </div>
+  
+                  <!-- read more button -->
+                  <a href="<%=post._id%>"><button id="read-more">Read More</button></a>
+  
+                  <!-- bookmark icon -->
+                  <%if(user){%>
+                    <span class="bookmark" data-post="<%=post._id%>">
+                      <%if(bookmarks.includes(post._id)){%>
+                        <i class="fa-solid fa-bookmark"></i>
+  
+                        <%}else{%>
+                          <i class="fa-regular fa-bookmark"></i>
+                          <%}%>
+                    </span>
+                    <%}%>
+             
+                </div>
+              </div>
+            </a>
+  
+            <%})%>
+              <%}else{%>
+                <p>Nothing to show</p>
+                <%}%>
+      </section>
+
+
+      <div class="view-more">
+        <a class="btn" href="/blog">View More <i class="fa-solid fa-arrow-right"></i></a>
+      </div>
+    </div>
+  </main>
+</section>
+
+<!-- including footer -->
+<%-include("footer")-%>
+
+<!-- including javascript -->
+<script src="../static/js/home.js"></script>

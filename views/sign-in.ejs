@@ -1,0 +1,76 @@
+<!-- including header -->
+<%-include("header")-%>
+
+  <!-- including css -->
+  <link rel="stylesheet" href="../static/css/sign-in.css" />
+
+  <!-- sign-up-text -->
+  <div class="animation">
+    <img class="bg" src="../static/img/sign-up-img/bg-2.svg" alt="">
+    <img class="bag" src="../static/img/sign-up-img/Bag_object.svg" alt="">
+    <img class="girl" src="../static/img/sign-up-img/girl_laptop.svg" alt="">
+    <img class="tulip" src="../static/img/sign-up-img/Tulip.svg" alt="">
+  </div>
+
+  <!-- form-container -->
+  <div class="form-container">
+
+    <!-- alert message -->
+    <%if(invalidLogin){%>
+      <div class="alert">
+        <div class="alert-container flex">
+          <i class="fa-solid fa-triangle-exclamation icon"></i>
+          <div class="alert-details">
+            <div class="status">Invalid</div>
+            <div class="message">Invalid Login Details!</div>
+          </div>
+          <i class="fa-solid fa-x"></i>
+        </div>
+        <div class="progress"></div>
+      </div>
+      <%}%>
+
+
+        <!-- sign-in-form -->
+        <form action="/user/sign-in" id="sign-in-form" method="post">
+          <h2>Sign-In</h2>
+          <div class="form-input">
+            <div>
+              <input type="email" name="email" required />
+              <label for="email" id="email-label">E-mail</label>
+
+            </div>
+            <div>
+              <input type="password" name="password" class="password" required />
+              <label for="password" id="password-label">Password</label>
+
+              <i class="fa-solid fa-eye"></i>
+              <i class="fa-solid fa-eye-slash"></i>
+
+            </div>
+          </div>
+          <button type="submit">Submit</button>
+
+          <div class="text">
+            <span>forget your password?
+              <a href="/forget-password" id="forget-password">click here.</a>
+            </span>
+            <span>
+              New Here?
+              <a href="/user/sign-up" id="create-account">Create Account</a>
+            </span>
+          </div>
+        </form>
+
+  </div>
+
+
+  <!-- including footer -->
+  <%-include('footer')-%>
+
+    <!-- including javascript -->
+    <script src="../static/js/sign-in.js"></script>
+    <script src="../static/js/alert.js"></script>
+    </body>
+
+    </html>

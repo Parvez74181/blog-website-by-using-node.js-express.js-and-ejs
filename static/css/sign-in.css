@@ -1,0 +1,409 @@
+.categories {
+  display: none;
+}
+
+.alert {
+  border-left: 0.5rem solid red;
+}
+.alert .alert-container {
+  color: red;
+}
+.alert .alert-container .icon {
+  background: red;
+}
+.alert .progress {
+  background: red;
+}
+
+.animation {
+  position: relative;
+  z-index: 1;
+  top: 25rem;
+  left: 20%;
+}
+.animation img {
+  position: absolute;
+  transition: 0.4s;
+}
+.animation .bg {
+  opacity: 0.2;
+  width: 45rem;
+  -webkit-animation: bg 4s ease-in-out infinite;
+          animation: bg 4s ease-in-out infinite;
+}
+.animation .bag {
+  transform: translate(3rem, 20rem);
+  width: 7rem;
+  -webkit-animation: bag 4s ease-in-out infinite;
+          animation: bag 4s ease-in-out infinite;
+}
+.animation .girl {
+  width: 30rem;
+  left: 1.5%;
+  -webkit-animation: girl 4s ease-in-out infinite;
+          animation: girl 4s ease-in-out infinite;
+  -webkit-animation-delay: -2s;
+          animation-delay: -2s;
+}
+.animation .tulip {
+  width: 15rem;
+  transform: translate(35rem, 12rem);
+  -webkit-animation: tulip 4s ease-in-out infinite;
+          animation: tulip 4s ease-in-out infinite;
+  -webkit-animation-delay: -5s;
+          animation-delay: -5s;
+}
+
+@-webkit-keyframes bg {
+  0%, 100% {
+    transform: translateY(0rem);
+  }
+  50% {
+    transform: translateY(2rem);
+  }
+}
+
+@keyframes bg {
+  0%, 100% {
+    transform: translateY(0rem);
+  }
+  50% {
+    transform: translateY(2rem);
+  }
+}
+@-webkit-keyframes bag {
+  0%, 100% {
+    transform: translate(3rem, 17rem);
+  }
+  50% {
+    transform: translate(3rem, 21rem);
+  }
+}
+@keyframes bag {
+  0%, 100% {
+    transform: translate(3rem, 17rem);
+  }
+  50% {
+    transform: translate(3rem, 21rem);
+  }
+}
+@-webkit-keyframes girl {
+  0%, 100% {
+    transform: translateY(0rem);
+  }
+  50% {
+    transform: translateY(2rem);
+  }
+}
+@keyframes girl {
+  0%, 100% {
+    transform: translateY(0rem);
+  }
+  50% {
+    transform: translateY(2rem);
+  }
+}
+@-webkit-keyframes tulip {
+  0%, 100% {
+    transform: translate(35rem, 12rem);
+  }
+  50% {
+    transform: translate(35rem, 15rem);
+  }
+}
+@keyframes tulip {
+  0%, 100% {
+    transform: translate(35rem, 12rem);
+  }
+  50% {
+    transform: translate(35rem, 15rem);
+  }
+}
+.form-container {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  overflow: hidden;
+}
+.form-container #sign-in-form {
+  position: absolute;
+  width: 25%;
+  height: 60%;
+  display: flex;
+  justify-content: center;
+  box-shadow: 0px 0px 1.5rem rgba(0, 0, 0, 0.1);
+  align-items: center;
+  flex-direction: column;
+  overflow: hidden;
+  border-radius: 1rem;
+  background: #FFFFFF;
+  transform-origin: center center;
+  transform: translateX(30rem);
+  -webkit-animation: pop_up 1s ease;
+          animation: pop_up 1s ease;
+}
+.form-container #sign-in-form h2 {
+  color: #0C1618;
+  position: absolute;
+  top: 7%;
+  font-size: 5rem;
+}
+.form-container #sign-in-form h2::after {
+  content: "";
+  position: absolute;
+  bottom: -2px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 50%;
+  height: 4px;
+  background: #0C1618;
+}
+.form-container #sign-in-form .form-input {
+  position: relative;
+  top: 1rem;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-direction: column;
+  padding: 0rem 3rem;
+}
+.form-container #sign-in-form .form-input div {
+  position: relative;
+  width: 100%;
+  margin-top: 5rem;
+}
+.form-container #sign-in-form .form-input div label {
+  position: absolute;
+  left: 0;
+  font-size: 1.3rem;
+  font-weight: 300;
+  padding: 1rem 0rem;
+  color: #0C1618;
+  transition: 0.3s;
+  z-index: -1;
+}
+.form-container #sign-in-form .form-input div input {
+  position: relative;
+  width: 100%;
+  outline: none;
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid #0C1618;
+  padding: 1rem 0rem;
+  color: #0C1618;
+  transition: 0.3s;
+}
+.form-container #sign-in-form .form-input div input:focus {
+  border-bottom: 1px solid #0C1618;
+}
+.form-container #sign-in-form .form-input div input:focus ~ label,
+.form-container #sign-in-form .form-input div input:valid ~ label,
+.form-container #sign-in-form .form-input div input:checked ~ label {
+  transform: translateY(-2rem);
+  color: #0C1618;
+  font-size: 1rem;
+}
+.form-container #sign-in-form .form-input div i {
+  position: absolute;
+  color: #0C1618;
+  font-size: 1.5rem;
+  right: 1rem;
+  bottom: 1.5rem;
+}
+.form-container #sign-in-form .form-input div .password {
+  padding-right: 3.5rem;
+}
+.form-container #sign-in-form .form-input div .fa-eye-slash {
+  display: none;
+}
+.form-container #sign-in-form .form-input div .fa-eye-slash,
+.form-container #sign-in-form .form-input div .fa-eye {
+  cursor: pointer;
+}
+.form-container #sign-in-form button {
+  position: relative;
+  top: 8%;
+  width: 90%;
+  outline: none;
+  background: transparent;
+  border: 1px solid #D72638;
+  background: #D72638;
+  border-radius: 1rem;
+  margin: 2rem;
+  padding: 1rem;
+  font-size: 2rem;
+  font-weight: 600;
+  color: #FFFFFF;
+  transition: 0.4s;
+  cursor: pointer;
+}
+.form-container #sign-in-form button:hover {
+  box-shadow: 0 0 1.5rem #D72638;
+}
+.form-container #sign-in-form .text {
+  position: relative;
+  top: 5.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.form-container #sign-in-form .text span {
+  color: #0C1618;
+  font-size: 1.5rem;
+  padding: 0.5rem;
+}
+.form-container #sign-in-form .text span #forget-password,
+.form-container #sign-in-form .text span #create-account {
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: #0e2b49;
+  padding: 0.5rem;
+}
+
+@-webkit-keyframes pop_up {
+  0% {
+    height: 0%;
+  }
+  100% {
+    height: 60%;
+  }
+}
+
+@keyframes pop_up {
+  0% {
+    height: 0%;
+  }
+  100% {
+    height: 60%;
+  }
+}
+.flex {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+@media only screen and (min-width: 320px) and (max-width: 480px) {
+  .animation {
+    display: none;
+  }
+  .form-container #sign-in-form {
+    width: 90%;
+    height: 70%;
+    transform: translate(0, 1rem);
+  }
+  .form-container #sign-in-form h2 {
+    font-size: 3rem;
+  }
+  .form-container #sign-in-form .form-input {
+    top: 0;
+  }
+  .form-container #sign-in-form .form-input div i {
+    font-size: 1.2rem;
+  }
+  .form-container #sign-in-form button {
+    width: 30%;
+    top: 4%;
+  }
+  .form-container #sign-in-form .text {
+    top: 3.5rem;
+  }
+}
+@media only screen and (min-width: 481px) and (max-width: 768px) {
+  .animation {
+    display: none;
+  }
+  .form-container #sign-in-form {
+    width: 70%;
+    height: 75%;
+    transform: translate(0, 1rem);
+  }
+  .form-container #sign-in-form h2 {
+    font-size: 3rem;
+  }
+  .form-container #sign-in-form .form-input div i {
+    font-size: 1.4rem;
+  }
+  .form-container #sign-in-form button {
+    width: 30%;
+  }
+  .form-container #sign-in-form .text {
+    top: 3.5rem;
+  }
+}
+@media only screen and (min-width: 769px) and (max-width: 1024px) {
+  .animation {
+    display: none;
+  }
+  .form-container #sign-in-form {
+    top: 18rem;
+    width: 45%;
+    height: 70%;
+    transform: translate(12rem, -5rem);
+  }
+  .form-container #sign-in-form h2 {
+    font-size: 3rem;
+  }
+  .form-container #sign-in-form .form-input {
+    top: 0;
+  }
+  .form-container #sign-in-form .form-input div i {
+    font-size: 1.4rem;
+  }
+  .form-container #sign-in-form button {
+    width: 25%;
+    top: 5%;
+  }
+  .form-container #sign-in-form .text {
+    top: 3.5rem;
+  }
+}
+@media only screen and (min-width: 1025px) and (max-width: 1200px) {
+  .animation {
+    left: 21.5%;
+  }
+  .animation .bg {
+    width: 35rem;
+  }
+  .animation .bag {
+    width: 5rem;
+  }
+  .animation .girl {
+    width: 20rem;
+    left: 3.5%;
+  }
+  .animation .tulip {
+    width: 10rem;
+    left: -10rem;
+    transform: translate(20rem, 12rem);
+  }
+  .form-container #sign-in-form {
+    width: 40%;
+    height: 60%;
+    transform: translate(28rem, 3rem);
+  }
+  .form-container #sign-in-form h2 {
+    font-size: 3rem;
+  }
+  .form-container #sign-in-form .form-input {
+    top: 0;
+  }
+  .form-container #sign-in-form .form-input div i {
+    font-size: 1.8rem;
+  }
+  .form-container #sign-in-form button {
+    width: 25%;
+    top: 4%;
+  }
+  .form-container #sign-in-form .text {
+    top: 3.5rem;
+  }
+}/*# sourceMappingURL=sign-in.css.map */

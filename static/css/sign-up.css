@@ -1,0 +1,359 @@
+.categories {
+  display: none;
+}
+
+.animation {
+  position: relative;
+  z-index: 1;
+  top: 30rem;
+  left: 10%;
+}
+.animation img {
+  position: absolute;
+  transition: 0.4s;
+}
+.animation .bg {
+  opacity: 0.2;
+  width: 45rem;
+  -webkit-animation: bg 4s ease-in-out infinite;
+          animation: bg 4s ease-in-out infinite;
+}
+.animation .leaves {
+  transform: translate(3rem, 20rem);
+  width: 7rem;
+  opacity: 0.3;
+  -webkit-animation: leaves 4s ease-in-out infinite;
+          animation: leaves 4s ease-in-out infinite;
+}
+.animation .man {
+  width: 15rem;
+  transform: translate(17rem, 0rem);
+  -webkit-animation: man 4s ease-in-out infinite;
+          animation: man 4s ease-in-out infinite;
+  -webkit-animation-delay: -2s;
+          animation-delay: -2s;
+}
+.animation .bank {
+  opacity: 0.7;
+  width: 30rem;
+  transform: translate(10rem, 15rem);
+  -webkit-animation: bank 4s ease-in-out infinite;
+          animation: bank 4s ease-in-out infinite;
+  -webkit-animation-delay: -1.5s;
+          animation-delay: -1.5s;
+}
+
+@-webkit-keyframes bg {
+  0%, 100% {
+    transform: translateY(0rem);
+  }
+  50% {
+    transform: translateY(2rem);
+  }
+}
+
+@keyframes bg {
+  0%, 100% {
+    transform: translateY(0rem);
+  }
+  50% {
+    transform: translateY(2rem);
+  }
+}
+@-webkit-keyframes leaves {
+  0%, 100% {
+    transform: translate(3rem, 17rem);
+  }
+  50% {
+    transform: translate(3rem, 21rem);
+  }
+}
+@keyframes leaves {
+  0%, 100% {
+    transform: translate(3rem, 17rem);
+  }
+  50% {
+    transform: translate(3rem, 21rem);
+  }
+}
+@-webkit-keyframes man {
+  0%, 100% {
+    transform: translate(17rem, 0rem);
+  }
+  50% {
+    transform: translate(17rem, 2rem);
+  }
+}
+@keyframes man {
+  0%, 100% {
+    transform: translate(17rem, 0rem);
+  }
+  50% {
+    transform: translate(17rem, 2rem);
+  }
+}
+@-webkit-keyframes bank {
+  0%, 100% {
+    transform: translate(10rem, 15rem);
+  }
+  50% {
+    transform: translate(10rem, 17rem);
+  }
+}
+@keyframes bank {
+  0%, 100% {
+    transform: translate(10rem, 15rem);
+  }
+  50% {
+    transform: translate(10rem, 17rem);
+  }
+}
+.form-container {
+  position: absolute;
+  width: 100%;
+  min-height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.form-container #sign-up-form {
+  position: relative;
+  width: 30%;
+  height: 80rem;
+  margin: 8rem 0;
+  display: flex;
+  justify-content: center;
+  box-shadow: 0px 0px 1.5rem rgba(0, 0, 0, 0.1);
+  align-items: center;
+  flex-direction: column;
+  overflow: hidden;
+  transition: 1.2s;
+  background: #FFFFFF;
+  border-radius: 1rem;
+  -webkit-backdrop-filter: blur(40px);
+          backdrop-filter: blur(40px);
+  transform: translateX(20rem);
+  -webkit-animation: pop_up 0.5s ease;
+          animation: pop_up 0.5s ease;
+}
+.form-container #sign-up-form h2 {
+  color: #0C1618;
+  position: absolute;
+  top: 5%;
+  font-size: 4rem;
+}
+.form-container #sign-up-form h2::after {
+  content: "";
+  position: absolute;
+  bottom: -5%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 50%;
+  height: 4px;
+  background: #0C1618;
+}
+.form-container #sign-up-form .form-input {
+  position: relative;
+  top: 1rem;
+  width: 80%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-direction: column;
+  padding: 0rem 3rem;
+}
+.form-container #sign-up-form .form-input div {
+  position: relative;
+  width: 100%;
+  margin-top: 6rem;
+}
+.form-container #sign-up-form .form-input div label {
+  position: absolute;
+  left: 0;
+  font-weight: 300;
+  padding: 1rem 0rem;
+  color: #0C1618;
+  transition: 0.3s;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  font-size: 1.3rem;
+}
+.form-container #sign-up-form .form-input div input {
+  position: relative;
+  width: 100%;
+  outline: none;
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid #0C1618;
+  padding: 1rem 0rem;
+  color: #0C1618;
+  transition: 0.3s;
+  z-index: 1;
+}
+.form-container #sign-up-form .form-input div input:focus {
+  border-bottom: 1px solid #0C1618;
+}
+.form-container #sign-up-form .form-input div input:focus ~ label,
+.form-container #sign-up-form .form-input div input:valid ~ label,
+.form-container #sign-up-form .form-input div input:checked ~ label {
+  transform: translateY(-2rem);
+  font-size: 1rem;
+}
+.form-container #sign-up-form .form-input div i {
+  position: absolute;
+  color: #0C1618;
+  font-size: 1.5rem;
+  right: 1rem;
+  bottom: 1.5rem;
+}
+.form-container #sign-up-form .form-input div .password {
+  padding-right: 3.5rem;
+}
+.form-container #sign-up-form .form-input div .fa-eye-slash {
+  display: none;
+}
+.form-container #sign-up-form .form-input div .fa-eye-slash,
+.form-container #sign-up-form .form-input div .fa-eye {
+  cursor: pointer;
+  z-index: 1;
+}
+.form-container #sign-up-form button {
+  position: relative;
+  top: 3%;
+  width: 70%;
+  outline: none;
+  background: transparent;
+  border: 1px solid #D72638;
+  background: #D72638;
+  border-radius: 1rem;
+  margin: 2rem;
+  padding: 1rem;
+  font-size: 2rem;
+  font-weight: 600;
+  color: #FFFFFF;
+  transition: 0.4s;
+  cursor: pointer;
+}
+.form-container #sign-up-form button:hover {
+  box-shadow: 0 0 1.5rem #D72638;
+}
+.form-container #sign-up-form .text {
+  position: relative;
+  top: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.form-container #sign-up-form .text span {
+  color: #0C1618;
+  font-size: 1.5rem;
+  padding: 0.5rem;
+}
+.form-container #sign-up-form .text span #sign-in {
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: #0e2b49;
+  padding: 0.5rem;
+}
+
+@-webkit-keyframes pop_up {
+  0% {
+    height: 0rem;
+  }
+  100% {
+    height: 80rem;
+  }
+}
+
+@keyframes pop_up {
+  0% {
+    height: 0rem;
+  }
+  100% {
+    height: 80rem;
+  }
+}
+.flex {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+@media only screen and (min-width: 320px) and (max-width: 480px) {
+  .animation {
+    display: none;
+  }
+  .form-container {
+    position: inherit;
+  }
+  .form-container #sign-up-form {
+    transform: translateX(0rem);
+    width: 90%;
+  }
+  .form-container #sign-up-form h2 {
+    font-size: 3rem;
+  }
+  .form-container #sign-up-form h2::after {
+    height: 3px;
+  }
+}
+@media only screen and (min-width: 481px) and (max-width: 768px) {
+  .animation {
+    display: none;
+  }
+  .form-container {
+    position: inherit;
+  }
+  .form-container #sign-up-form {
+    transform: translateX(0rem);
+    width: 90%;
+  }
+  .form-container #sign-up-form h2 {
+    font-size: 3rem;
+  }
+  .form-container #sign-up-form h2::after {
+    height: 3px;
+  }
+}
+@media only screen and (min-width: 769px) and (max-width: 1024px) {
+  .animation {
+    display: none;
+  }
+  .form-container {
+    position: inherit;
+  }
+  .form-container #sign-up-form {
+    transform: translateX(11rem);
+    width: 50%;
+  }
+  .form-container #sign-up-form h2 {
+    font-size: 3rem;
+  }
+  .form-container #sign-up-form h2::after {
+    height: 3px;
+  }
+}
+@media only screen and (min-width: 1025px) and (max-width: 1200px) {
+  .animation {
+    display: none;
+  }
+  .form-container {
+    position: inherit;
+  }
+  .form-container #sign-up-form {
+    transform: translateX(12rem);
+    width: 50%;
+  }
+  .form-container #sign-up-form h2 {
+    font-size: 3rem;
+  }
+  .form-container #sign-up-form h2::after {
+    height: 3px;
+  }
+}/*# sourceMappingURL=sign-up.css.map */

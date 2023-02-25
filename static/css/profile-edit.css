@@ -1,0 +1,322 @@
+.categories {
+  display: none;
+}
+
+main .form-container {
+  position: relative;
+  min-height: 170vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  overflow: hidden;
+}
+main .form-container #profile-edit-form {
+  position: relative;
+  width: 40%;
+  margin: 2rem 0;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  background: #FFFFFF;
+  box-shadow: 0px 0px 1.5rem rgba(0, 0, 0, 0.2);
+  align-items: center;
+  overflow: hidden;
+  transition: 1.2s;
+  border-radius: 1rem;
+  -webkit-backdrop-filter: blur(40px);
+          backdrop-filter: blur(40px);
+  transform: translate(10rem, 3rem);
+}
+main .form-container #profile-edit-form h2 {
+  color: #0C1618;
+  position: absolute;
+  top: 3%;
+  font-size: 3rem;
+}
+main .form-container #profile-edit-form h2::after {
+  content: "";
+  position: absolute;
+  bottom: -5%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 50%;
+  height: 3px;
+  background: white;
+}
+main .form-container #profile-edit-form #user-data {
+  position: relative;
+  margin-top: 18%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+main .form-container #profile-edit-form #user-data i {
+  font-size: 1.8rem;
+  position: absolute;
+  width: 3.5rem;
+  height: 3.5rem;
+  background: #0C1618;
+  color: #FFFFFF;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  top: 47%;
+  left: 90%;
+  border-radius: 50%;
+  transform: translateX(-50%);
+  transition: 0.3s;
+}
+main .form-container #profile-edit-form #user-data i:hover {
+  transform: scale(1.05);
+}
+main .form-container #profile-edit-form #user-data #profile {
+  width: 10rem;
+  height: 10rem;
+  -o-object-fit: fill;
+     object-fit: fill;
+  border-radius: 50%;
+  transition: 0.3s;
+}
+main .form-container #profile-edit-form #user-data #profile:hover {
+  transform: scale(1.05);
+}
+main .form-container #profile-edit-form #user-data #profilePic,
+main .form-container #profile-edit-form #user-data #outputImageUrl {
+  display: none;
+}
+main .form-container #profile-edit-form .form-input {
+  position: relative;
+  top: 1rem;
+  width: 80%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-direction: column;
+  padding: 0rem 3rem;
+}
+main .form-container #profile-edit-form .form-input div {
+  position: relative;
+  width: 100%;
+  margin-top: 6rem;
+}
+main .form-container #profile-edit-form .form-input div label {
+  position: absolute;
+  left: 0;
+  font-weight: 300;
+  padding: 1rem;
+  color: #0C1618;
+  transition: 0.3s;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  font-size: 1.3rem;
+}
+main .form-container #profile-edit-form .form-input div input,
+main .form-container #profile-edit-form .form-input div textarea {
+  position: relative;
+  width: 100%;
+  outline: none;
+  background: transparent;
+  border: none;
+  border: 1px solid #0C1618;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  color: #0C1618;
+  transition: 0.3s;
+  resize: none;
+  z-index: 1;
+}
+main .form-container #profile-edit-form .form-input div input:focus,
+main .form-container #profile-edit-form .form-input div textarea:focus {
+  border-bottom: 1px solid #0C1618;
+}
+main .form-container #profile-edit-form .form-input div .is-invalid {
+  border-bottom: 1px solid #e60200;
+}
+main .form-container #profile-edit-form .form-input div .invalid-feedback {
+  left: 0;
+  position: absolute;
+  width: 100%;
+  font-size: 1.3rem;
+  color: #e60200;
+  bottom: -20px;
+}
+main .form-container #profile-edit-form .form-input div input:focus ~ label,
+main .form-container #profile-edit-form .form-input div input:valid ~ label,
+main .form-container #profile-edit-form .form-input div input:checked ~ label,
+main .form-container #profile-edit-form .form-input div textarea:focus ~ label,
+main .form-container #profile-edit-form .form-input div textarea:valid ~ label,
+main .form-container #profile-edit-form .form-input div textarea:checked ~ label {
+  transform: translate(-1rem, -3rem);
+  color: #0C1618;
+  font-size: 1rem;
+}
+main .form-container #profile-edit-form .form-input div i {
+  position: absolute;
+  color: #0C1618;
+  font-size: 1.5rem;
+  right: 1rem;
+  bottom: 1.5rem;
+}
+main .form-container #profile-edit-form .form-input h3 {
+  color: #0C1618;
+  opacity: 0.8;
+  font-size: 2rem;
+  padding-top: 2rem;
+  font-weight: 500;
+}
+main .form-container #profile-edit-form .form-input .social-links {
+  position: relative;
+  margin-top: -10rem;
+}
+main .form-container #profile-edit-form .form-input .social-links .facebook input,
+main .form-container #profile-edit-form .form-input .social-links .website input,
+main .form-container #profile-edit-form .form-input .social-links .linkedin input,
+main .form-container #profile-edit-form .form-input .social-links .youtube input,
+main .form-container #profile-edit-form .form-input .social-links .instagram input,
+main .form-container #profile-edit-form .form-input .social-links .twitter input {
+  padding-left: 5rem;
+}
+main .form-container #profile-edit-form .form-input .social-links i {
+  position: absolute;
+  left: 0;
+  width: 3.9rem;
+  height: 3.9rem;
+  top: 3%;
+  border-top-left-radius: 0.5rem;
+  border-bottom-left-radius: 0.5rem;
+  background: #0C1618;
+  color: #FFFFFF;
+  padding: 1rem;
+  font-size: 2rem;
+}
+main .form-container #profile-edit-form #btn {
+  position: relative;
+  width: 50%;
+  outline: none;
+  background: transparent;
+  border: 1px solid #D72638;
+  background: #D72638;
+  border-radius: 1rem;
+  margin: 6rem;
+  padding: 1rem;
+  font-size: 2rem;
+  font-weight: 600;
+  color: #FFFFFF;
+  transition: 0.4s;
+  cursor: pointer;
+}
+main .form-container #profile-edit-form #btn:hover {
+  box-shadow: 0 0 1rem #D72638;
+}
+main .form-container .crop-modal {
+  position: absolute;
+  width: 70vw;
+  margin: auto;
+  height: 100vh;
+  top: 0;
+  z-index: 2;
+  display: flex;
+  justify-content: center;
+  transform: scale(0) translateX(10rem);
+}
+main .form-container .crop-modal .modal-content {
+  position: relative;
+  background: #FFFFFF;
+  width: 50%;
+  height: 50%;
+  border-radius: 0.5rem;
+  padding: 2rem;
+  z-index: 5;
+  transform: scale(0);
+  transform-origin: top center;
+  transition: 0.4s;
+}
+main .form-container .crop-modal .modal-content #modal-close {
+  position: absolute;
+  top: 1%;
+  right: 1%;
+  width: 3rem;
+  height: 3rem;
+  list-style: none;
+  border-radius: 0.5rem;
+  padding: 1rem;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  z-index: 2;
+}
+main .form-container .crop-modal .modal-content #modal-close .fa-xmark {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 1.7rem;
+  width: 3rem;
+  height: 3rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: 0.1s;
+  color: #0C1618;
+}
+main .form-container .crop-modal .modal-content #modal-close .fa-xmark:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 0.5rem;
+}
+main .form-container .crop-modal .modal-content .modal-body {
+  position: absolute;
+  width: 90%;
+  height: 60%;
+  top: 10%;
+  left: 5%;
+  bottom: 15%;
+}
+main .form-container .crop-modal .modal-content .modal-body .preview-image #image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+main .form-container .crop-modal .modal-content hr {
+  position: relative;
+  top: 80%;
+  border: 0.5px solid #0e2b49;
+}
+main .form-container .crop-modal .modal-content .modal-buttons {
+  position: absolute;
+  bottom: 5%;
+  right: 5%;
+}
+main .form-container .crop-modal .modal-content .modal-buttons #cancel {
+  background: #444;
+  transition: 0.1s;
+  border-color: #444;
+  color: #f7f7fb;
+  margin-right: 2rem;
+  box-shadow: -0.5rem 0.5rem #222;
+}
+main .form-container .crop-modal .modal-content .modal-buttons #cancel:active {
+  top: 0.4rem;
+  box-shadow: -0.2rem 0.2rem #222;
+}
+
+.flex {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  width: 100%;
+}/*# sourceMappingURL=profile-edit.css.map */

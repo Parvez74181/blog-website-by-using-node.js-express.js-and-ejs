@@ -1,0 +1,419 @@
+// importing color code
+@import "./_colorCode";
+// blog section
+.categories {
+    display: none;
+}
+.blog {
+    position: relative;
+    width: 70%;
+    transform: translateX(10rem);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    margin: auto;
+    .card {
+        margin: 10rem 0;
+        width: 80%;
+        border-radius: 0.5rem;
+        background: rgba(255, 255, 255, 0.1);
+        box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2);
+        .show-date {
+            position: absolute;
+            width: 10rem;
+            height: 10rem;
+            border: 0.8rem solid linear-gradient(#5a0e3a, #49093b);
+            z-index: 2;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            backdrop-filter: blur(10px);
+            #date {
+                position: relative;
+                width: 100%;
+                height: 100%;
+                text-align: center;
+                background: linear-gradient(#5a0e3a, #49093b);
+                font-family: "Oswald", sans-serif;
+                color: $white;
+                font-size: 3.5rem;
+                padding: 0rem 1rem;
+                line-height: 1.3;
+                font-weight: 500;
+            }
+        }
+
+        .card-content {
+            #content-img {
+                top: 0;
+                left: 0;
+                width: 100%;
+                object-fit: contain;
+            }
+            #title {
+                position: relative;
+                padding: 0.7rem 2rem;
+                width: 90%;
+                margin: auto;
+                font-size: 3rem;
+                line-height: 4rem;
+                text-align: center;
+                font-weight: 400;
+                color: $white;
+                overflow: hidden;
+            }
+            #description {
+                position: relative;
+                width: 90%;
+                margin: auto;
+                overflow: hidden;
+                color: $white;
+                line-height: 3rem;
+                text-align: justify;
+                padding: 2rem 4rem;
+                font-size: 1.6rem;
+                img {
+                    width: 100%;
+                    object-fit: fill;
+                }
+            }
+            .bookmark {
+                font-size: 1.8rem;
+                position: relative;
+                right: -10rem;
+                color: $white;
+            }
+            .data {
+                position: relative;
+                display: flex;
+                justify-content: space-around;
+                align-items: center;
+                font-size: 1.5rem;
+                // transform: translateY(4rem);
+                top: 2%;
+                color: $white;
+                #authore {
+                    position: relative;
+                    justify-content: start;
+                    width: 50%;
+                    letter-spacing: 1px;
+                    font-size: 1rem;
+                    #authore-image {
+                        margin-right: 0.5rem;
+                        box-shadow: 0 0 1rem rgba(0, 0, 0, 0.2);
+                        width: 3rem;
+                        height: 3rem;
+                        border-radius: 50%;
+                    }
+                }
+                #time {
+                    font-size: 1rem;
+                }
+            }
+        }
+    }
+    // like
+    .feelings {
+        position: relative;
+        width: 80%;
+        margin: auto;
+        .like {
+            justify-content: start;
+            i {
+                font-size: 1.7rem;
+                cursor: pointer;
+                color: $white;
+            }
+            #totalLikes {
+                padding-left: 1rem;
+                font-size: 1.7rem;
+                color: $white;
+            }
+        }
+        #login-text {
+            margin-top: 0.5rem;
+            font-size: 1.6rem;
+            color: $white;
+            a {
+                color: #efff94;
+            }
+        }
+    }
+    // comments
+    // comment box
+    .comment-container {
+        position: relative;
+        width: 83%;
+        margin: 2rem auto;
+
+        .comments {
+            position: relative;
+            width: 100%;
+            margin: 1rem 0;
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+
+            .comment-content {
+                border-radius: 1rem;
+                background: rgba(255, 255, 255, 0.1);
+                box-shadow: 0 0 2rem rgba(0, 0, 0, 0.2);
+                backdrop-filter: blur(4rem);
+                width: 100%;
+                margin: 1rem 0;
+                color: $ghost-white;
+
+                .reply-content {
+                    margin: 1rem 0;
+                    width: 90%;
+                    position: relative;
+                    left: 5%;
+                    border-radius: 1rem;
+                    backdrop-filter: blur(4rem);
+                    display: flex;
+                    box-shadow: 0 0 2rem rgba(0, 0, 0, 0.2);
+                    align-items: center;
+
+                    .user-data {
+                        position: relative;
+                        width: 15%;
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: center;
+                        align-items: center;
+                        #user-img {
+                            width: 2.5rem;
+                            height: 2.5rem;
+                            border-radius: 50%;
+                        }
+                    }
+                    .comment {
+                        width: 85%;
+                        padding: 2rem;
+                        padding-left: 0;
+                        #user-name {
+                            font-size: 1.2rem;
+                            color: #93e1d8;
+                        }
+                        p {
+                            text-align: justify;
+                            font-size: 1.2rem;
+                            line-height: 1.5rem;
+                        }
+                        #reply-btn {
+                            position: relative;
+                            left: 90%;
+                            font-size: 1.2rem;
+                            cursor: pointer;
+                        }
+                    }
+                }
+                // .reply-content.active {
+                //     display: inherit;
+                // }
+                .comment-reply-container {
+                    display: flex;
+                    align-items: center;
+                    width: 100%;
+                    .user-data {
+                        position: relative;
+                        width: 15%;
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: center;
+                        align-items: center;
+                        #user-img {
+                            width: 2.5rem;
+                            height: 2.5rem;
+                            border-radius: 50%;
+                        }
+                    }
+                    .comment {
+                        width: 85%;
+                        padding: 2rem;
+                        padding-left: 0;
+                        #user-name {
+                            font-size: 1.2rem;
+                            color: #93e1d8;
+                        }
+                        p {
+                            text-align: justify;
+                            font-size: 1.2rem;
+                            line-height: 1.5rem;
+                        }
+                        #reply-btn {
+                            position: relative;
+                            left: 90%;
+                            font-size: 1.2rem;
+                            cursor: pointer;
+                        }
+                    }
+                    #reply-toggol {
+                        position: relative;
+                        width: 7rem;
+                        top: 3rem;
+                        left: -1rem;
+                        background: none;
+                        border: none;
+                        outline: none;
+                        color: $white;
+                        cursor: pointer;
+                    }
+                }
+                // reply input box
+                .reply-input-box {
+                    position: relative;
+                    width: 90%;
+                    height: 5rem;
+                    left: 5%;
+                    margin-top: 1rem;
+                    #reply {
+                        position: relative;
+                        top: 0;
+                        left: 0;
+                        width: 100%;
+                        height: 4rem;
+                        outline: none;
+                        border: none;
+                        border-radius: 1rem;
+                        padding: 1rem;
+                        font-size: 1.2rem;
+                        overflow: hidden;
+                        overflow-y: scroll;
+                        resize: none;
+                        background: rgba(255, 255, 255, 0.1);
+                        color: rgba(255, 255, 255, 0.8);
+                        &::placeholder {
+                            color: rgba(255, 255, 255, 0.8);
+                        }
+                    }
+                    #reply-send {
+                        position: absolute;
+                        font-size: 1.5rem;
+                        bottom: 45%;
+                        right: 2%;
+                        color: $white;
+                        transform: rotate(45deg);
+                        cursor: pointer;
+                    }
+                }
+                .reply-input-box.active {
+                    display: inherit;
+                }
+            }
+        }
+    }
+
+    // comment area
+    .comment-box {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        #comment {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.1);
+            border: none;
+            border-radius: 1rem;
+            outline: none;
+            resize: none;
+            padding: 1rem;
+            font-size: 1.5rem;
+            color: rgba(255, 255, 255, 0.8);
+
+            &::placeholder {
+                color: rgba(255, 255, 255, 0.8);
+            }
+        }
+        #comment-send {
+            position: absolute;
+            font-size: 1.5rem;
+            top: 50%;
+            right: 0;
+            transform: translate(-50%, -50%) rotate(45deg);
+            cursor: pointer;
+            color: $white;
+        }
+    }
+
+    //you might like posts
+    .recent-post {
+        width: 80%;
+        position: relative;
+        left: 0;
+        .h1 {
+            text-align: left;
+            &::after {
+                bottom: -1%;
+                left: 0%;
+                transform: rotateX(0);
+            }
+        }
+        .recent-post-container {
+            position: relative;
+            width: 100%;
+            gap: 2rem;
+            a {
+                position: relative;
+                width: 20%;
+                text-decoration: none;
+                .recent-post-card {
+                    position: relative;
+                    width: 100%;
+                    height: 20rem;
+                    margin: 1rem 0;
+                    background: rgba(255, 255, 255, 0.1);
+                    box-shadow: 0 0 2rem rgba(0, 0, 0, 0.2);
+                    border-radius: 0.5rem;
+                    transition: 0.3s;
+                    &:hover {
+                        transform: translateY(-1rem);
+                        box-shadow: 0 0 2rem rgba(0, 0, 0, 0.4);
+                    }
+                    .recent-post-thumbnail {
+                        position: relative;
+                        width: 100%;
+                        height: 50%;
+                        img {
+                            position: relative;
+                            width: 100%;
+                            object-fit: cover;
+                            height: 100%;
+                            border-top-left-radius: 0.5rem;
+                            border-top-right-radius: 0.5rem;
+                        }
+                    }
+                    .recent-post-content {
+                        position: relative;
+                        width: 100%;
+                        padding: 1rem;
+                        color: $white;
+                        flex-direction: column;
+                        align-items: self-start;
+                        justify-content: space-between;
+                        .utils {
+                            position: relative;
+                            width: 100%;
+                            justify-content: space-between;
+                            .recent-post-date {
+                                color: rgba(255, 255, 255, 0.7);
+                            }
+                        }
+                        .recent-post-title {
+                            margin-top: 1rem;
+                            max-width: 100%;
+                            height: 4rem;
+                            font-weight: 450;
+                            overflow: hidden;
+                            display: -webkit-box;
+                            -webkit-line-clamp: 2;
+                            -webkit-box-orient: vertical;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
